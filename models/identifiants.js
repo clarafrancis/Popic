@@ -1,10 +1,10 @@
 class identifiants {
-    constructor(id,title,ingredients,imageUrl){
+    constructor(id,title,quiz,imageUrl){
         this.id=id;
         this.title=title;
-        this.ingredients=ingredients;
+        this.quiz=quiz;
         this.imageUrl=imageUrl;
 
     }
-};
+}
 export default identifiants;

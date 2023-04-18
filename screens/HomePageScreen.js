@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#C6E2CF',
     },
     textStyle: {
-        color: 'black',
+        color: 'gray',
         textAlign: 'center',
         fontSize: 20
     },

@@ -33,7 +33,7 @@ function DrawerNavigator() {
     drawerActiveTintColor: '#85C17E',
   }}>
     <Drawer.Screen 
-    name="Accueil" 
+    name="Po'Pic" 
     component={BottomTabNavigator} 
     options={{
       drawerIcon: ({color, size}) => <Entypo name="home" size={size} color={color} />
@@ -76,19 +76,23 @@ function BottomTabNavigator() {
   <BottomTab.Navigator screenOptions={{
     drawerActiveBackgroundColor: "lightgray",
     drawerActiveTintColor: '#85C17E',
+    tabBarActiveTintColor:'green',
     headerShown: false,
   }}>
     <BottomTab.Screen 
     name="Tips Of The Day" 
-    component={TipsScreen}/>
+    component={TipsScreen}
+    options={{tabBarIcon: ({size,color}) => (<Entypo name="info" size={24} color="black" />)}}/>
 
     <BottomTab.Screen 
-    name="Accueil" 
-    component={HomePageScreen} />
+    name="Acceuil" 
+    component={HomePageScreen} 
+    options={{tabBarIcon: ({size,color}) => (<Entypo name="leaf" size={24} color="black" />)}}/>
 
     <BottomTab.Screen 
-    name="Tes Points" 
+    name="Points" 
     component={GiftScreen} 
+    options={{tabBarIcon: ({size,color}) => (<Entypo name="trophy" size={24} color="black" />)}}
     />
 
     </BottomTab.Navigator>
@@ -101,9 +105,9 @@ export default function App() {
       <>
               <NavigationContainer>
                 <Stack.Navigator> 
-                  <Stack.Screen name="Drawer" component={DrawerNavigator} options ={{headerShown: false}}/>
+                  <Stack.Screen name="Drawer" component={DrawerNavigator} options ={{headerShown: false}} />
                   {/* <Stack.Screen name="BottomTab" component={BottomTabNavigator} options={{headerShown: false}}/> */}
-                  <Stack.Screen name="Gift Details" component={GiftDetailsScreen}/>
+                  <Stack.Screen name="Gift Details" component={GiftDetailsScreen} />
                 </Stack.Navigator>
               </NavigationContainer>
         </>

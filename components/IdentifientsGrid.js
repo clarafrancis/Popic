@@ -6,7 +6,7 @@ import identifiants from '../models/identifiants';
 
 // const identifiants = IDENTIFIANTS.find((identifiants) => identifiants.id===identifiantsID);
 
-function IdentifientsGrid({title,ingredients,imageUrl}){
+function IdentifientsGrid({title,quiz,imageUrl}){
     const [modalVisible, setModalVisible] = useState(false);
     return(
         <View style={styles.gridItem}>
