@@ -1,9 +1,10 @@
 class identifiants {
-    constructor(id,title,quiz,imageUrl){
+    constructor(profil,id,title,imageUrl,quiz){
+        this.profil=profil;
         this.id=id;
         this.title=title;
-        this.quiz=quiz;
         this.imageUrl=imageUrl;
+        this.quiz=quiz;
 
     }
 }
