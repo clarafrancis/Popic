@@ -21,7 +21,7 @@ import ImagePicker from './ImagePicker';
 //   }, [navigation, PageAcceuil]);
 function renderCategoryItem(itemData){
   return(
-    <IdentifientsGrid title={itemData.item.title} imageUrl={itemData.item.imageUrl} quiz={itemData.item.quiz}/>
+    <IdentifientsGrid profil={itemData.item.profil} title={itemData.item.title} imageUrl={itemData.item.imageUrl} quiz={itemData.item.quiz}/>
 
   );
 }
@@ -44,14 +44,14 @@ function HomePageScreen({navigation}) {
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle}>Le Challenge Ici!!</Text>
+              <Text style={styles.textStyle2}>Challenge du jour: Arroser vos plantes</Text>
             </Pressable>
         </View>
       </Modal>
       <Pressable
         style={[styles.button, styles.buttonOpen]}
         onPress={() => setModalVisible(true)}>
-        <Text style={styles.textStyle}>Take Your daily Pic!</Text>
+        <Text style={styles.textStyle}>Pic your daily Pop!</Text>
       </Pressable>
       </View>
 
@@ -97,20 +97,27 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf:'center',
-        width: '60%',
+        
         
     },
     buttonOpen: {
-        backgroundColor: '#C6E2CF',
+        backgroundColor: '#4C7C4C',
+        width: '60%',
     },
     buttonClose: {
-        backgroundColor: '#C6E2CF',
+        backgroundColor: '#C9DCBD',
+        width: '80%',
     },
     textStyle: {
-        color: 'gray',
+        color: 'white',
         textAlign: 'center',
         fontSize: 20
     },
+    textStyle2: {
+      color: '#4C7C4C',
+      textAlign: 'center',
+      fontSize: 20
+  },
     modalText: {
         marginBottom: 13,
         textAlign: 'center',

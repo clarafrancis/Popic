@@ -11,8 +11,9 @@ function IdentifientsGrid({profil,title,imageUrl,quiz}){
     return(
         <View style={styles.gridItem}>
                 <View style={styles.innerContainner}>
-                    {/* <Image source ={{uri:profil}} style={styles.imageProfil}/> */}
+                  <Image source ={{uri:profil}} style={styles.imageProfil}/>
                     <Text>{title}</Text>
+
                         <Modal
                             animationType="fade"
                             transparent={true}
@@ -35,7 +36,7 @@ function IdentifientsGrid({profil,title,imageUrl,quiz}){
                             <Text style={styles.textStyle}> ? </Text>
                         </Pressable>
                 </View>
-            <Image source ={{uri:imageUrl}} style={styles.image}/>
+            <Image source ={{uri:imageUrl}} style={styles.image} />
     </View>
     );
 
@@ -55,17 +56,17 @@ const styles=StyleSheet.create({
     },
     innerContainner:{
         flex:1,
-        justifyContent: 'space-between',
+        justifyContent: 'flex-start',
         flexDirection: 'row',
 
     },
     imageProfil:{
-      width:'20%',
-      height: 20,
+      width:'10%',
+      height: 30,
     },
     image:{
         width:'100%',
-        height: 323,
+        height: 320,
         borderRadius: 8,
     },
     modalView: {
