@@ -11,6 +11,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator} from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { getHeaderTitle } from '@react-navigation/elements';
 
 
 import GiftScreen from './screens/GiftScreen';
@@ -23,47 +24,47 @@ import HomePageScreen from './screens/HomePageScreen';
 import TipsScreen from './screens/TipsScreen';
 
 const Stack = createNativeStackNavigator(); 
-const Drawer = createDrawerNavigator();
+// const Drawer = createDrawerNavigator();
 const BottomTab = createBottomTabNavigator();
 
-function DrawerNavigator() {
-  return (
-  <Drawer.Navigator screenOptions={{
-    drawerActiveBackgroundColor: "lightgray",
-    drawerActiveTintColor: '#85C17E',
-  }}>
-    <Drawer.Screen 
-    name="Po'Pic" 
-    component={BottomTabNavigator} 
-    options={{
-      drawerIcon: ({color, size}) => <Entypo name="home" size={size} color={color} />
-    }}/>
+// function DrawerNavigator() {
+//   return (
+//   <Drawer.Navigator screenOptions={{
+//     drawerActiveBackgroundColor: "lightgray",
+//     drawerActiveTintColor: '#85C17E',
+//   }}>
+//     <Drawer.Screen 
+//     name="Po'Pic" 
+//     component={BottomTabNavigator} 
+//     options={{
+//       drawerIcon: ({color, size}) => <Entypo name="home" size={size} color={color} />
+//     }}/>
 
-    <Drawer.Screen 
-    name="Profil" 
-    component={ProfileScreen} 
-    options={{
-      drawerIcon: ({color, size}) => <FontAwesome name="user" size={size} color={color} />
-    }}/>
+//     <Drawer.Screen 
+//     name="Profil" 
+//     component={ProfileScreen} 
+//     options={{
+//       drawerIcon: ({color, size}) => <FontAwesome name="user" size={size} color={color} />
+//     }}/>
 
-    <Drawer.Screen 
-    name="Amis" 
-    component={FriendsScreen}
-    options={{
-      drawerIcon: ({color, size}) => <FontAwesome name="users" size={size} color={color} />
-    }}/>
+//     <Drawer.Screen 
+//     name="Amis" 
+//     component={FriendsScreen}
+//     options={{
+//       drawerIcon: ({color, size}) => <FontAwesome name="users" size={size} color={color} />
+//     }}/>
 
   
-    <Drawer.Screen 
-    name="Paramètres" 
-    component={SettingsScreen}
-    options={{
-      drawerIcon: ({color}) => <Ionicons name="settings" size={24} color={color} />
-    }}/>
+//     <Drawer.Screen 
+//     name="Paramètres" 
+//     component={SettingsScreen}
+//     options={{
+//       drawerIcon: ({color}) => <Ionicons name="settings" size={24} color={color} />
+//     }}/>
 
-  </Drawer.Navigator>
-  );
-} 
+//   </Drawer.Navigator>
+//   );
+// } 
 
 function BottomTabNavigator() {
   return (
@@ -105,8 +106,8 @@ export default function App() {
       <>
               <NavigationContainer>
                 <Stack.Navigator> 
-                  <Stack.Screen name="Drawer" component={DrawerNavigator} options ={{headerShown: false}} />
-                  {/* <Stack.Screen name="BottomTab" component={BottomTabNavigator} options={{headerShown: false}}/> */} 
+                  {/* <Stack.Screen name="Drawer" component={DrawerNavigator} options ={{headerShown: false}} /> */}
+                  <Stack.Screen name ="Po'Pic" component={BottomTabNavigator}/>
                   <Stack.Screen name="Gift Details" component={GiftDetailsScreen} />
                 </Stack.Navigator>
               </NavigationContainer>
