@@ -6,11 +6,12 @@ import identifiants from '../models/identifiants';
 
 // const identifiants = IDENTIFIANTS.find((identifiants) => identifiants.id===identifiantsID);
 
-function IdentifientsGrid({title,ingredients,imageUrl}){
+function IdentifientsGrid({profil,title,imageUrl,quiz}){
     const [modalVisible, setModalVisible] = useState(false);
     return(
         <View style={styles.gridItem}>
                 <View style={styles.innerContainner}>
+                    {/* <Image source ={{uri:profil}} style={styles.imageProfil}/> */}
                     <Text>{title}</Text>
                         <Modal
                             animationType="fade"
@@ -20,7 +21,7 @@ function IdentifientsGrid({title,ingredients,imageUrl}){
                             setModalVisible(!modalVisible);
                             }}>
                             <View style={styles.modalView}>
-                                <Text style={styles.modalText}>{title}</Text>
+                                <Text style={styles.modalText}>{quiz}</Text>
                                 <Pressable
                                 style={[styles.button, styles.buttonClose]}
                                 onPress={() => setModalVisible(!modalVisible)}>
@@ -57,6 +58,10 @@ const styles=StyleSheet.create({
         justifyContent: 'space-between',
         flexDirection: 'row',
 
+    },
+    imageProfil:{
+      width:'20%',
+      height: 20,
     },
     image:{
         width:'100%',

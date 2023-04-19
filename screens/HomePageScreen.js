@@ -3,7 +3,8 @@ import { StatusBar } from 'expo-status-bar';
 import { useLayoutEffect } from 'react';
 import {StyleSheet, FlatList, Alert, Pressable, Modal, Text, Image, View, Button} from 'react-native';
 import IdentifientsGrid from '../components/IdentifientsGrid';
-import { IDENTIFIANTS } from '../data/id';
+import { IDENTIFIANTS } from '../data/id'; 
+import ImagePicker from './ImagePicker';
 // import Bouttons from '../Components/Bouttons';
 
 // function PageAcceuil({navigation}) {
@@ -20,7 +21,7 @@ import { IDENTIFIANTS } from '../data/id';
 //   }, [navigation, PageAcceuil]);
 function renderCategoryItem(itemData){
   return(
-    <IdentifientsGrid title={itemData.item.title} imageUrl={itemData.item.imageUrl}/>
+    <IdentifientsGrid title={itemData.item.title} imageUrl={itemData.item.imageUrl} quiz={itemData.item.quiz}/>
 
   );
 }
@@ -59,6 +60,8 @@ function HomePageScreen({navigation}) {
         keyExtractor={(item) => item.id}
         renderItem={renderCategoryItem}
       />
+
+      <ImagePicker/>
 
 
       {/* <View style={styles.BoiteFeed}> 
@@ -104,7 +107,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#C6E2CF',
     },
     textStyle: {
-        color: 'black',
+        color: 'gray',
         textAlign: 'center',
         fontSize: 20
     },
@@ -112,7 +115,6 @@ const styles = StyleSheet.create({
         marginBottom: 13,
         textAlign: 'center',
     },          
-
     container: {
         // flex: 1, 
         flexDirection: 'column',// main axis en colonne VS Cross axis en ligne
