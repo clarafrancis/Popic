@@ -1,12 +1,16 @@
-import { FlatList, StyleSheet, StatusBar, View, Text, Button, Image } from "react-native";
+import { FlatList, StyleSheet, StatusBar, View, Text, Button, Image, Pressable, Alert } from "react-native";
 import { GIFTS } from "../data/dataGIFT";
 import GiftGridTile from "../components/GiftsGridTile";
 import { useLayoutEffect } from "react";
 import { ProgressBar, MD3Colors } from "react-native-paper";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import {FontAwesome5} from "@expo/vector-icons";
 import IconButton from '../components/IconButton';
 import { Directions } from "react-native-gesture-handler";
+
+import LeaderboardScreen from "./LeaderboardScreen";
 
 
 function renderGiftItem(itemData) {
@@ -46,21 +50,23 @@ function GiftScreen({navigation}) {
         <StatusBar style="light"/>
         <View style={styles.container}>
             <View style={styles.topContainer}>
-                <Image style={[styles.profilePic, styles.rightContainer]}
+                <Image style={[styles.profilePic, styles.leftContainer]}
                 source={require('../assets/pp.jpg')}/>
             <View>
-                <View style={styles.leftContainer}>
-                    <View style={styles.tleftContainer}>
-                        <Text style= {styles.topText}> Discounts </Text>
+                <View style={styles.rightContainer}>
+                    <View style={styles.trightContainer}>
+                        <Text style= {styles.topText}> Discounts </Text> 
                     </View>
                 </View>
-                <View style={styles.bleftContainer} >
+                
+                <View style={styles.brightContainer} >
                     {/* <Text> Your points <FontAwesome5 name="crown" size={24} color="black" /> {"\n"} </Text> */}
                     <Text style={styles.topText}> Your points : </Text>
                     <Text style={styles.numPoints}> 35 <FontAwesome5 name="crown" size={35} color="black"/> </Text> 
                 </View>
-                </View>
+              </View>
             </View>
+
             <View style={styles.midContainer}>
                 <Text style={styles.ProgressBarText}> Progression to next milestone : {"\n"} </Text>
                 <ProgressBar progress={0.35} color={MD3Colors.error50}/>
@@ -125,7 +131,7 @@ const styles = StyleSheet.create({
         padding: 10,
     },
 
-    rightContainer : {
+    leftContainer : {
     //   marginTop: 50,
         flexDirection: 'row',
         padding: 10,
@@ -133,7 +139,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
 
-    leftContainer : {
+    rightContainer : {
         //   marginTop: 50,
           flexDirection: 'column',
           padding: 10,
@@ -141,7 +147,7 @@ const styles = StyleSheet.create({
           alignItems: 'center'
         },
 
-    tleftContainer : {
+    trightContainer : {
         //   marginTop: 50,
           flexDirection: 'row',
         //   padding: 10,
@@ -152,8 +158,8 @@ const styles = StyleSheet.create({
           borderRadius: 50,
           borderColor: '#44AFAB',
         },
-
-    bleftContainer : {
+ 
+    brightContainer : {
     //   marginTop: 50,
       flexDirection: 'row',
     //   padding: 10,

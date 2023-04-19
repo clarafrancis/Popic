@@ -33,7 +33,7 @@ function DrawerNavigator() {
     drawerActiveTintColor: '#85C17E',
   }}>
     <Drawer.Screen 
-    name="Accueil" 
+    name="Po'Pic" 
     component={BottomTabNavigator} 
     options={{
       drawerIcon: ({color, size}) => <Entypo name="home" size={size} color={color} />
@@ -53,13 +53,7 @@ function DrawerNavigator() {
       drawerIcon: ({color, size}) => <FontAwesome name="users" size={size} color={color} />
     }}/>
 
-    <Drawer.Screen 
-    name="Leaderboard" 
-    component={LeaderboardScreen}
-    options={{
-      drawerIcon: ({color, size}) => <MaterialIcons name="leaderboard" size={size} color={color} />
-    }}/>
-
+  
     <Drawer.Screen 
     name="Paramètres" 
     component={SettingsScreen}
