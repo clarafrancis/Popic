@@ -7,7 +7,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import {FontAwesome5} from "@expo/vector-icons";
-import IconButton from '../components/IconButton';
+// import IconButton from '../components/IconButton';
 import { Directions } from "react-native-gesture-handler";
 
 import LeaderboardScreen from "./LeaderboardScreen";
@@ -33,18 +33,6 @@ function GiftScreen({navigation}) {
         
         return <GiftGridTile task={itemData.item.task} points={itemData.item.points} onPress={PressHandler}/>;}
         
-        // function HeaderButtonPressHandler() {
-        //     console.log('Pressed')
-        // }
-
-        // useLayoutEffect(() => {
-        //     navigation.setOptions({
-        //         headerRight:() => {
-        //             return <IconButton icon='menu' color='black' onPress={HeaderButtonPressHandler}/>;
-        //           },
-        //     });
-        // }, [navigation, HeaderButtonPressHandler]);
-
     return (
         <>
         <StatusBar style="light"/>

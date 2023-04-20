@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import {StyleSheet, Text, TextInput, View, Button, SectionList, SafeAreaView, Image, StatusBar, Pressable, Modal, Views, Alert, ScrollView } from 'react-native';
 // import AppContainer from "react-native-web/dist/exports/AppRegistry/AppContainer";
 import {Entypo} from "@expo/vector-icons";
@@ -22,6 +22,9 @@ import LeaderboardScreen from './screens/LeaderboardScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import HomePageScreen from './screens/HomePageScreen';
 import TipsScreen from './screens/TipsScreen';
+import { ReloadInstructions } from 'react-native/Libraries/NewAppScreen';
+import IconButtonProfile from './components/IconButtonProfile';
+import IconButtonSettings from './components/IconButtonSettings';
 
 const Stack = createNativeStackNavigator(); 
 // const Drawer = createDrawerNavigator();
@@ -66,7 +69,8 @@ const BottomTab = createBottomTabNavigator();
 //   );
 // } 
 
-function BottomTabNavigator() {
+function BottomTabNavigator(navigation) {
+
   return (
   <BottomTab.Navigator screenOptions={{
     drawerActiveBackgroundColor: "lightgray",
@@ -100,14 +104,24 @@ function BottomTabNavigator() {
   );
 }
 
-export default function App() {
-    
+export default function App({navigation}) {
+  
+  function HeaderButtonPressHandler() {
+    console.log('Pressed')
+}
     return (
       <>
               <NavigationContainer>
                 <Stack.Navigator> 
                   {/* <Stack.Screen name="Drawer" component={DrawerNavigator} options ={{headerShown: false}} /> */}
-                  <Stack.Screen name ="Po'Pic" component={BottomTabNavigator}/>
+                  <Stack.Screen name ="Po'Pic" component={BottomTabNavigator} options={{
+                    headerRight:() => {
+                      return <IconButtonProfile onPress={HeaderButtonPressHandler}/>
+                    },
+                    headerLeft:() => {
+                      return <IconButtonSettings onPress={HeaderButtonPressHandler}/>
+                    }
+                  }}/>
                   <Stack.Screen name="Gift Details" component={GiftDetailsScreen} />
                 </Stack.Navigator>
               </NavigationContainer>
