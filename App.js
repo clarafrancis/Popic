@@ -74,19 +74,25 @@ function BottomTabNavigator() {
     headerShown: false,
   }}>
     <BottomTab.Screen 
-    name="Tips Of The Day" 
+    name="Tips" 
     component={TipsScreen}
-    options={{tabBarIcon: ({size,color}) => (<Entypo name="info" size={24} color="black" />)}}/>
+    options={{tabBarIcon: ({size,color}) => (<Entypo name="info" size={24} color="gray" />)}}/>
 
     <BottomTab.Screen 
     name="Acceuil" 
     component={HomePageScreen} 
-    options={{tabBarIcon: ({size,color}) => (<Entypo name="leaf" size={24} color="black" />)}}/>
+    options={{tabBarIcon: ({size,color}) => (<Entypo name="leaf" size={24} color="gray" />)}}/>
 
     <BottomTab.Screen 
     name="Points" 
     component={GiftScreen} 
-    options={{tabBarIcon: ({size,color}) => (<Entypo name="trophy" size={24} color="black" />)}}
+    options={{tabBarIcon: ({size,color}) => (<Entypo name="trophy" size={24} color="gray" />)}}
+    />
+
+    <BottomTab.Screen 
+    name="Amis" 
+    component={FriendsScreen} 
+    options={{tabBarIcon: ({size,color}) => (<Ionicons name="people" size={24} color="gray" />)}}
     />
 
     </BottomTab.Navigator>
@@ -100,7 +106,7 @@ export default function App() {
               <NavigationContainer>
                 <Stack.Navigator> 
                   <Stack.Screen name="Drawer" component={DrawerNavigator} options ={{headerShown: false}} />
-                  {/* <Stack.Screen name="BottomTab" component={BottomTabNavigator} options={{headerShown: false}}/> */}
+                  {/* <Stack.Screen name="BottomTab" component={BottomTabNavigator} options={{headerShown: false}}/> */} 
                   <Stack.Screen name="Gift Details" component={GiftDetailsScreen} />
                 </Stack.Navigator>
               </NavigationContainer>
