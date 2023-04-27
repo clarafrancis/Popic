@@ -60,8 +60,8 @@ function HomePageScreen({navigation}) {
         keyExtractor={(item) => item.id}
         renderItem={renderCategoryItem}
       />
-
       <ImagePicker/>
+      
 
 
       {/* <View style={styles.BoiteFeed}> 

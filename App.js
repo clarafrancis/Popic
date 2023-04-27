@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {StyleSheet, Text, TextInput, View, Button, SectionList, SafeAreaView, Image, StatusBar, Pressable, Modal, Views, Alert, ScrollView } from 'react-native';
+import {StyleSheet, Text, TextInput, View, Button, SectionList, SafeAreaView, Image, Pressable, Modal, Views, Alert, ScrollView } from 'react-native';
 // import AppContainer from "react-native-web/dist/exports/AppRegistry/AppContainer";
 import {Entypo} from "@expo/vector-icons";
 import { SimpleLineIcons } from "@expo/vector-icons"; 
@@ -12,7 +12,7 @@ import { createDrawerNavigator} from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { getHeaderTitle } from '@react-navigation/elements';
-
+//import { StatusBar } from 'expo-status-bar';
 
 import GiftScreen from './screens/GiftScreen';
 import GiftDetailsScreen from './screens/GiftDetailsScreen';
@@ -22,6 +22,8 @@ import LeaderboardScreen from './screens/LeaderboardScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import HomePageScreen from './screens/HomePageScreen';
 import TipsScreen from './screens/TipsScreen';
+import LoginScreen from './screens/LoginScreen';
+import SignupScreen from './screens/SignupScreen';
 
 const Stack = createNativeStackNavigator(); 
 // const Drawer = createDrawerNavigator();
@@ -66,6 +68,23 @@ const BottomTab = createBottomTabNavigator();
 //   );
 // } 
 
+// function AuthStack() {
+//   return (
+//     <Stack.Navigator>
+//       <Stack.Screen name="Login" component={LoginScreen} />
+//       <Stack.Screen name="Signup" component={SignupScreen} />
+//     </Stack.Navigator>
+//   );
+// }
+
+// function Navigation() {
+//   return (
+//     <NavigationContainer>
+//       <AuthStack />
+//     </NavigationContainer>
+//   );
+// }
+
 function BottomTabNavigator() {
   return (
   <BottomTab.Navigator screenOptions={{
@@ -92,7 +111,7 @@ function BottomTabNavigator() {
 
     <BottomTab.Screen 
     name="Amis" 
-    component={FriendsScreen} 
+    component={LoginScreen} 
     options={{tabBarIcon: ({size,color}) => (<Ionicons name="people" size={24} color="gray" />)}}
     />
 
@@ -104,11 +123,15 @@ export default function App() {
     
     return (
       <>
+        {/* <StatusBar style="light" />
+
+        <Navigation /> */}
               <NavigationContainer>
                 <Stack.Navigator> 
                   {/* <Stack.Screen name="Drawer" component={DrawerNavigator} options ={{headerShown: false}} /> */}
                   <Stack.Screen name ="Po'Pic" component={BottomTabNavigator}/>
                   <Stack.Screen name="Gift Details" component={GiftDetailsScreen} />
+                  <Stack.Screen name="Signup" component={SignupScreen} />
                 </Stack.Navigator>
               </NavigationContainer>
         </>

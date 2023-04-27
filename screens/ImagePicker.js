@@ -33,15 +33,15 @@ function ImagePicker(){
         }
         const image=await launchCameraAsync({
             allowsEditing: true,
-            aspect:[16, 9],
+            aspect:[4, 3],
             quality: 0.5,
         });
-        setPickedImage(image.uri);
+        setPickedImage(image.assets[0].uri);
     } 
 
-    let imagePreview = <Text>No image takent yet</Text>
+    let imagePreview = <Text>No image takent yet</Text>;
     if (pickedImage){
-        imagePreview = <Image styles={styles.image} source={{uri: pickedImage}}/>;
+        imagePreview = <Image styles={styles.image} source={{assets: pickedImage}}/>;
 
     }
 
@@ -81,12 +81,12 @@ const styles = StyleSheet.create({
         height: 200,
         marginVertical:8,
         justifyContent: 'center',
-        alignItems:'center'
+        alignItems:'center',
+        backgroundColor: 'gray'
     },
     image:{
         width:'100%',
-        height: 320,
-        borderRadius: 8,
+        height: '100%',
     }
 
 
