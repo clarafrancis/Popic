@@ -33,18 +33,6 @@ function GiftScreen({navigation}) {
         
         return <GiftGridTile task={itemData.item.task} points={itemData.item.points} onPress={PressHandler}/>;}
         
-        // function HeaderButtonPressHandler() {
-        //     console.log('Pressed')
-        // }
-
-        // useLayoutEffect(() => {
-        //     navigation.setOptions({
-        //         headerRight:() => {
-        //             return <IconButton icon='menu' color='black' onPress={HeaderButtonPressHandler}/>;
-        //           },
-        //     });
-        // }, [navigation, HeaderButtonPressHandler]);
-
     return (
         <>
         <StatusBar style="light"/>

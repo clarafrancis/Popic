@@ -1,4 +1,4 @@
-import { useState,useContext } from 'react';
+import { useState, useLayoutEffect,useContext } from 'react';
 import {StyleSheet, Text, TextInput, View, Button, SectionList, SafeAreaView, Image, Pressable, Modal, Views, Alert, ScrollView } from 'react-native';
 // import AppContainer from "react-native-web/dist/exports/AppRegistry/AppContainer";
 import {Entypo} from "@expo/vector-icons";
@@ -22,6 +22,9 @@ import LeaderboardScreen from './screens/LeaderboardScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import HomePageScreen from './screens/HomePageScreen';
 import TipsScreen from './screens/TipsScreen';
+import { ReloadInstructions } from 'react-native/Libraries/NewAppScreen';
+import IconButtonProfile from './components/IconButtonProfile';
+import IconButtonSettings from './components/IconButtonSettings';
 import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
 import AuthContextProvider, { AuthContext } from './store/auth-context';
