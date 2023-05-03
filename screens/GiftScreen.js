@@ -7,7 +7,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import {FontAwesome5} from "@expo/vector-icons";
-import IconButton from '../components/IconButton';
+// import IconButton from '../components/IconButton';
 import { Directions } from "react-native-gesture-handler";
 
 import LeaderboardScreen from "./LeaderboardScreen";

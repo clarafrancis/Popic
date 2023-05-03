@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import {StyleSheet, Text, TextInput, View, Button, SectionList, SafeAreaView, Image, Pressable, Modal, Views, Alert, ScrollView } from 'react-native';
 // import AppContainer from "react-native-web/dist/exports/AppRegistry/AppContainer";
 import {Entypo} from "@expo/vector-icons";
@@ -24,6 +24,8 @@ import HomePageScreen from './screens/HomePageScreen';
 import TipsScreen from './screens/TipsScreen';
 import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
+import AuthContextProvider, { AuthContext } from './store/auth-context';
+import Tabs from './components/tabs'
 
 const Stack = createNativeStackNavigator(); 
 // const Drawer = createDrawerNavigator();
@@ -87,16 +89,19 @@ const BottomTab = createBottomTabNavigator();
 
 function BottomTabNavigator() {
   return (
-  <BottomTab.Navigator screenOptions={{
+  <BottomTab.Navigator 
+  screenOptions={{
     drawerActiveBackgroundColor: "lightgray",
     drawerActiveTintColor: '#85C17E',
-    tabBarActiveTintColor:'green',
     headerShown: false,
+    tabBarShowLabel:false,
+    tabBarActiveTintColor: '#85C17E',
+
   }}>
     <BottomTab.Screen 
     name="Tips" 
     component={TipsScreen}
-    options={{tabBarIcon: ({size,color}) => (<Entypo name="info" size={24} color="gray" />)}}/>
+    options={{tabBarIcon: ({size,color}) => (<Entypo name="info" size={24} color="gray" />), tabBarActiveTintColor: '#85C17E'}}/>
 
     <BottomTab.Screen 
     name="Acceuil" 
@@ -111,7 +116,7 @@ function BottomTabNavigator() {
 
     <BottomTab.Screen 
     name="Amis" 
-    component={LoginScreen} 
+    component={FriendsScreen} 
     options={{tabBarIcon: ({size,color}) => (<Ionicons name="people" size={24} color="gray" />)}}
     />
 
@@ -119,21 +124,66 @@ function BottomTabNavigator() {
   );
 }
 
+function TabNavigation (){
+  return (
+
+    <Tabs>
+    </Tabs>
+
+  );
+}
+
+
+function AuthStack() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: { backgroundColor: 'white'},
+        headerTintColor: 'gray',
+        contentStyle: { backgroundColor: 'white' },
+      }}
+    >
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Signup" component={SignupScreen} />
+    </Stack.Navigator>
+  );
+}
+
+function AuthenticatedStack({navigation}) {
+  return (
+                <Stack.Navigator> 
+                  <Stack.Screen name ="Po'Pic" component={TabNavigation} options ={{headerShown: false,}}/>
+                  <Stack.Screen name="Gift Details" component={GiftDetailsScreen} />
+                  <Stack.Screen name ="Paramètre" component={SettingsScreen}/>
+                  <Stack.Screen name ="Profile" component={ProfileScreen}/>
+                </Stack.Navigator>
+  );
+}
+
+function Navigation() {
+  const authCtx = useContext(AuthContext);
+  return (
+    <NavigationContainer>
+      {!authCtx.isAuthenticated && <AuthStack />}
+      {authCtx.isAuthenticated && <AuthenticatedStack />}
+    </NavigationContainer>
+  );
+}
+
 export default function App() {
     
     return (
       <>
-        {/* <StatusBar style="light" />
-
-        <Navigation /> */}
-              <NavigationContainer>
+              {/* <NavigationContainer>
                 <Stack.Navigator> 
-                  {/* <Stack.Screen name="Drawer" component={DrawerNavigator} options ={{headerShown: false}} /> */}
                   <Stack.Screen name ="Po'Pic" component={BottomTabNavigator}/>
                   <Stack.Screen name="Gift Details" component={GiftDetailsScreen} />
                   <Stack.Screen name="Signup" component={SignupScreen} />
                 </Stack.Navigator>
-              </NavigationContainer>
+              </NavigationContainer> */}
+            <AuthContextProvider>
+            <Navigation />
+            </AuthContextProvider>  
         </>
     );
 
