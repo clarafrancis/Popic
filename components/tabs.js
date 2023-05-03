@@ -1,7 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
-import { StyleSheet,Text,View,Image,TouchableOpacity } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { StyleSheet,Text,View,Image,TouchableOpacity } from "react-native"; 
+// import { NavigationContainer } from "@react-navigation/native"; 
+import { useNavigation } from '@react-navigation/native';
 
 
 import HomePageScreen from '../screens/HomePageScreen';
@@ -20,7 +21,8 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Tab= createBottomTabNavigator();
 
-const Tabs = ({navigation, route})=> {
+const Tabs = ()=> {
+    const navigation = useNavigation();
     return(
         <Tab.Navigator
             screenOptions={{

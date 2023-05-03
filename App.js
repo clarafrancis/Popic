@@ -32,13 +32,13 @@ import Tabs from './components/tabs'
 
 const Stack = createNativeStackNavigator(); 
 const BottomTab = createBottomTabNavigator();
-const {useLayoutEffect} = React;
+// const {useLayoutEffect} = React;
 
 
-function BottomTabNavigator({navigation, route}) {
-  function HeaderButtonPressHandler() {
-    console.log('Pressed')
-}}
+// function BottomTabNavigator({navigation, route}) {
+//   function HeaderButtonPressHandler() {
+//     console.log('Pressed')
+// }}
   
 //     <Drawer.Screen 
 //     name="Paramètres" 
@@ -84,7 +84,7 @@ function BottomTabNavigator() {
     component={TipsScreen}
     options={{tabBarIcon: ({size,color}) => (<Entypo name="info" size={24} color="gray" />), tabBarActiveTintColor: '#85C17E'}}/>
 
-<BottomTab.Screen 
+    <BottomTab.Screen 
     name="Amis" 
     component={FriendsScreen} 
     options={{tabBarIcon: ({size,color}) => (<Ionicons name="people" size={24} color="gray" />)}}
@@ -141,9 +141,9 @@ function AuthenticatedStack({navigation}) {
                 <Stack.Navigator> 
                   <Stack.Screen name ="Po'Pic" component={TabNavigation} options ={{headerShown: false,}}/>
                   <Stack.Screen name="Gift Details" component={GiftDetailsScreen} />
-                  <Stack.Screen name ="Paramètre" component={SettingsScreen}/>
+                  <Stack.Screen name ="Paramètres" component={SettingsScreen} />
                   <Stack.Screen name ="Profile" component={ProfileScreen}/>
-                </Stack.Navigator>
+                </Stack.Navigator> 
   );
 }
 
