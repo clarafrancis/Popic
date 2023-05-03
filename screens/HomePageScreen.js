@@ -5,6 +5,11 @@ import {StyleSheet, FlatList, Alert, Pressable, Modal, Text, Image, View, Button
 import IdentifientsGrid from '../components/IdentifientsGrid';
 import { IDENTIFIANTS } from '../data/id'; 
 import ImagePicker from './ImagePicker';
+import {Ionicons} from "@expo/vector-icons";
+import {AntDesign} from "@expo/vector-icons";
+import {Entypo} from "@expo/vector-icons";
+import { ScrollView } from 'react-native-gesture-handler';
+import {LinearGradient} from "expo-linear-gradient";
 // import Bouttons from '../Components/Bouttons';
 
 // function PageAcceuil({navigation}) {
@@ -25,6 +30,7 @@ function renderCategoryItem(itemData){
 
   );
 }
+
 
 function HomePageScreen({navigation}) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -51,26 +57,42 @@ function HomePageScreen({navigation}) {
       <Pressable
         style={[styles.button, styles.buttonOpen]}
         onPress={() => setModalVisible(true)}>
-        <Text style={styles.textStyle}>Pic your daily Pop!</Text>
+        <Text style={styles.textStyle}>Pic your daily Pop !</Text>
       </Pressable>
       </View>
 
+
+      <ScrollView>
+        <View style={styles.boite}>
+          <Text style={styles.textStyle3}>Repond aux quiz, récolte des feuilles et gagne des réductions!</Text>
+          <View style={styles.boite2}>
+            <AntDesign name="questioncircle" size={24} color="gray" />
+            <Ionicons name="ios-arrow-forward" size={32} color="gray" />
+            <Entypo name="leaf" size={24} color="gray" />
+          </View>
+        </View>
+
+        <FlatList
+
+        data={IDENTIFIANTS}
+        keyExtractor={(item) => item.id}
+        renderItem={renderCategoryItem}
+        />
+      </ScrollView>
+
+
+      
+
+
+{/* 
       <FlatList
         data={IDENTIFIANTS}
         keyExtractor={(item) => item.id}
         renderItem={renderCategoryItem}
-      />
-
-      <ImagePicker/>
+      /> */}
 
 
-      {/* <View style={styles.BoiteFeed}> 
-        <Text style={styles.Titre2}>
-          @FredIcam
-        </Text>
-        <Image source={require('../Components/Image1.jpg')} 
-        style={styles.Image1}/>
-      </View> */}
+      
 
       
   </>
@@ -97,8 +119,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf:'center',
-        
-        
+    },
+    boite:{
+      backgroundColor: '#C9DCBD',
+      width: '75%',
+      borderRadius:25,
+      alignSelf:'center',
+    },
+    boite2:{
+      flexDirection:'row',
+      justifyContent:'space-evenly'
     },
     buttonOpen: {
         backgroundColor: '#4C7C4C',
@@ -118,6 +148,11 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       fontSize: 20
   },
+  textStyle3: {
+    color: '#4C7C4C',
+    textAlign: 'center',
+    fontSize: 15
+},
     modalText: {
         marginBottom: 13,
         textAlign: 'center',

@@ -33,15 +33,15 @@ function ImagePicker(){
         }
         const image=await launchCameraAsync({
             allowsEditing: true,
-            aspect:[16, 9],
+            aspect:[4, 3],
             quality: 0.5,
         });
-        setPickedImage(image.uri);
+        setPickedImage(image.assets[0].uri);
     } 
 
-    let imagePreview = <Text>No image takent yet</Text>
+    let imagePreview = <Text style={styles.texte2}>Ton challenge apaitra ici</Text>;
     if (pickedImage){
-        imagePreview = <Image styles={styles.image} source={{uri: pickedImage}}/>;
+        imagePreview = <Image styles={styles.image} source={{assets: pickedImage}}/>;
 
     }
 
@@ -50,10 +50,10 @@ function ImagePicker(){
 
     return(
         <View>
-             <View style={styles.imagePreview}>{imagePreview}</View> 
+             {/* <View style={styles.imagePreview}>{imagePreview}</View>  */}
             <View>
             <Pressable style={styles.button} onPress={takeImageHandler}>
-                <Text style={styles.texte}> Photo</Text>
+                <Text style={styles.texte}>Prenez en photo votre challenge !</Text>
             </Pressable>
             </View>
         </View>
@@ -67,26 +67,34 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: '#4C7C4C',
         alignItems: 'center', 
-        padding: 1,
-        width: '20%',
+        padding: 6,
+        width: '60%',
         alignSelf:'center',
-        borderRadius: 20   
+        borderRadius: 20  ,
+        marginTop:250 
     },
     texte:{
         color: 'white',
-        fontSize: 20,
+        fontSize: 25,
+        textAlign: 'justify'
+    },
+    texte2:{
+        color: 'white',
+        fontSize: 15,
     },
     imagePreview:{
-        width:'100%',
-        height: 200,
-        marginVertical:8,
+        width:'50%',
+        height: 40,
+        marginVertical:2,
         justifyContent: 'center',
-        alignItems:'center'
+        alignItems:'center',
+        backgroundColor: 'gray',
+        alignSelf:'center',
+        borderRadius:5,
     },
     image:{
         width:'100%',
-        height: 320,
-        borderRadius: 8,
+        height: '100%',
     }
 
 

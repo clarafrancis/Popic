@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import {StyleSheet, Text, TextInput, View, Button, SectionList, SafeAreaView, Image, StatusBar, Pressable, Modal, Views, Alert, ScrollView } from 'react-native';
+import { useState, useLayoutEffect,useContext } from 'react';
+import {StyleSheet, Text, TextInput, View, Button, SectionList, SafeAreaView, Image, Pressable, Modal, Views, Alert, ScrollView } from 'react-native';
 // import AppContainer from "react-native-web/dist/exports/AppRegistry/AppContainer";
 import {Entypo} from "@expo/vector-icons";
 import { SimpleLineIcons } from "@expo/vector-icons"; 
@@ -12,6 +12,7 @@ import { createDrawerNavigator} from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { getHeaderTitle } from '@react-navigation/elements';
+//import { StatusBar } from 'expo-status-bar';
 
 import GiftScreen from './screens/GiftScreen';
 import GiftDetailsScreen from './screens/GiftDetailsScreen';
@@ -24,6 +25,10 @@ import TipsScreen from './screens/TipsScreen';
 import { ReloadInstructions } from 'react-native/Libraries/NewAppScreen';
 import IconButtonProfile from './components/IconButtonProfile';
 import IconButtonSettings from './components/IconButtonSettings';
+import LoginScreen from './screens/LoginScreen';
+import SignupScreen from './screens/SignupScreen';
+import AuthContextProvider, { AuthContext } from './store/auth-context';
+import Tabs from './components/tabs'
 
 const Stack = createNativeStackNavigator(); 
 const BottomTab = createBottomTabNavigator();
@@ -33,30 +38,51 @@ const {useLayoutEffect} = React;
 function BottomTabNavigator({navigation, route}) {
   function HeaderButtonPressHandler() {
     console.log('Pressed')
-}
+}}
   
+//     <Drawer.Screen 
+//     name="Paramètres" 
+//     component={SettingsScreen}
+//     options={{
+//       drawerIcon: ({color}) => <Ionicons name="settings" size={24} color={color} />
+//     }}/>
+
+//   </Drawer.Navigator>
+//   );
+// } 
+
+// function AuthStack() {
+//   return (
+//     <Stack.Navigator>
+//       <Stack.Screen name="Login" component={LoginScreen} />
+//       <Stack.Screen name="Signup" component={SignupScreen} />
+//     </Stack.Navigator>
+//   );
+// }
+
+// function Navigation() {
+//   return (
+//     <NavigationContainer>
+//       <AuthStack />
+//     </NavigationContainer>
+//   );
+// }
+
+function BottomTabNavigator() {
   return (
   <BottomTab.Navigator 
-  initialRouteName='Accueil'
-
   screenOptions={{
     drawerActiveBackgroundColor: "lightgray",
     drawerActiveTintColor: '#85C17E',
-    tabBarActiveTintColor:'green',
-    headerRight:() => {
-      return <IconButtonProfile onPress={()=>navigation.navigate('Profile')}/>
-    },
-    headerLeft:() => {
-      return <IconButtonSettings onPress={()=>navigation.navigate('Paramètres')}/>
-    },
-    
-   
-    // headerShown: false,
+    headerShown: false,
+    tabBarShowLabel:false,
+    tabBarActiveTintColor: '#85C17E',
+
   }}>
     <BottomTab.Screen 
     name="Tips" 
     component={TipsScreen}
-    options={{tabBarIcon: ({size,color}) => (<Entypo name="info" size={24} color="gray" />)}}/>
+    options={{tabBarIcon: ({size,color}) => (<Entypo name="info" size={24} color="gray" />), tabBarActiveTintColor: '#85C17E'}}/>
 
 <BottomTab.Screen 
     name="Amis" 
@@ -85,33 +111,66 @@ function BottomTabNavigator({navigation, route}) {
   );
 }
 
+function TabNavigation (){
+  return (
 
+    <Tabs>
+    </Tabs>
 
-export default function App({navigation}) {
-  
-  function HeaderButtonPressHandler() {
-    console.log('Pressed')
+  );
 }
+
+
+function AuthStack() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: { backgroundColor: 'white'},
+        headerTintColor: 'gray',
+        contentStyle: { backgroundColor: 'white' },
+      }}
+    >
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Signup" component={SignupScreen} />
+    </Stack.Navigator>
+  );
+}
+
+function AuthenticatedStack({navigation}) {
+  return (
+                <Stack.Navigator> 
+                  <Stack.Screen name ="Po'Pic" component={TabNavigation} options ={{headerShown: false,}}/>
+                  <Stack.Screen name="Gift Details" component={GiftDetailsScreen} />
+                  <Stack.Screen name ="Paramètre" component={SettingsScreen}/>
+                  <Stack.Screen name ="Profile" component={ProfileScreen}/>
+                </Stack.Navigator>
+  );
+}
+
+function Navigation() {
+  const authCtx = useContext(AuthContext);
+  return (
+    <NavigationContainer>
+      {!authCtx.isAuthenticated && <AuthStack />}
+      {authCtx.isAuthenticated && <AuthenticatedStack />}
+    </NavigationContainer>
+  );
+}
+
+export default function App() {
+    
     return (
       <>
-              <NavigationContainer>
-             {/* <BottomTabNavigator/> */}
+              {/* <NavigationContainer>
                 <Stack.Navigator> 
-                 
-                  <Stack.Screen name ="Po'Pic" component={BottomTabNavigator} options={{
-                    
-                   headerShown: false,
-                    
-                  }}/>
-                  
+                  <Stack.Screen name ="Po'Pic" component={BottomTabNavigator}/>
                   <Stack.Screen name="Gift Details" component={GiftDetailsScreen} />
-                  <Stack.Screen name="Profile" component={ProfileScreen} />
-                  <Stack.Screen name="Paramètres" component={SettingsScreen} options={{
-                    gestureDirection:'horizontal-inverted'
-                  }}/>
-
+                  <Stack.Screen name="Signup" component={SignupScreen} />
                 </Stack.Navigator>
-              </NavigationContainer>
+              </NavigationContainer> */}
+            <AuthContextProvider>
+            <Navigation />
+            </AuthContextProvider>  
         </>
     );
 
