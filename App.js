@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect } from 'react';
+import React, { useState } from 'react';
 import {StyleSheet, Text, TextInput, View, Button, SectionList, SafeAreaView, Image, StatusBar, Pressable, Modal, Views, Alert, ScrollView } from 'react-native';
 // import AppContainer from "react-native-web/dist/exports/AppRegistry/AppContainer";
 import {Entypo} from "@expo/vector-icons";
@@ -13,7 +13,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { getHeaderTitle } from '@react-navigation/elements';
 
-
 import GiftScreen from './screens/GiftScreen';
 import GiftDetailsScreen from './screens/GiftDetailsScreen';
 import ProfileScreen from './screens/ProfileScreen';
@@ -27,66 +26,54 @@ import IconButtonProfile from './components/IconButtonProfile';
 import IconButtonSettings from './components/IconButtonSettings';
 
 const Stack = createNativeStackNavigator(); 
-// const Drawer = createDrawerNavigator();
 const BottomTab = createBottomTabNavigator();
+const {useLayoutEffect} = React;
 
-// function DrawerNavigator() {
-//   return (
-//   <Drawer.Navigator screenOptions={{
-//     drawerActiveBackgroundColor: "lightgray",
-//     drawerActiveTintColor: '#85C17E',
-//   }}>
-//     <Drawer.Screen 
-//     name="Po'Pic" 
-//     component={BottomTabNavigator} 
-//     options={{
-//       drawerIcon: ({color, size}) => <Entypo name="home" size={size} color={color} />
-//     }}/>
 
-//     <Drawer.Screen 
-//     name="Profil" 
-//     component={ProfileScreen} 
-//     options={{
-//       drawerIcon: ({color, size}) => <FontAwesome name="user" size={size} color={color} />
-//     }}/>
-
-//     <Drawer.Screen 
-//     name="Amis" 
-//     component={FriendsScreen}
-//     options={{
-//       drawerIcon: ({color, size}) => <FontAwesome name="users" size={size} color={color} />
-//     }}/>
-
+function BottomTabNavigator({navigation, route}) {
+  function HeaderButtonPressHandler() {
+    console.log('Pressed')
+}
   
-//     <Drawer.Screen 
-//     name="Paramètres" 
-//     component={SettingsScreen}
-//     options={{
-//       drawerIcon: ({color}) => <Ionicons name="settings" size={24} color={color} />
-//     }}/>
-
-//   </Drawer.Navigator>
-//   );
-// } 
-
-function BottomTabNavigator(navigation) {
-
   return (
-  <BottomTab.Navigator screenOptions={{
+  <BottomTab.Navigator 
+  initialRouteName='Accueil'
+
+  screenOptions={{
     drawerActiveBackgroundColor: "lightgray",
     drawerActiveTintColor: '#85C17E',
     tabBarActiveTintColor:'green',
-    headerShown: false,
+    headerRight:() => {
+      return <IconButtonProfile onPress={()=>navigation.navigate('Profile')}/>
+    },
+    headerLeft:() => {
+      return <IconButtonSettings onPress={()=>navigation.navigate('Paramètres')}/>
+    },
+    
+   
+    // headerShown: false,
   }}>
     <BottomTab.Screen 
     name="Tips" 
     component={TipsScreen}
     options={{tabBarIcon: ({size,color}) => (<Entypo name="info" size={24} color="gray" />)}}/>
 
+<BottomTab.Screen 
+    name="Amis" 
+    component={FriendsScreen} 
+    options={{tabBarIcon: ({size,color}) => (<Ionicons name="people" size={24} color="gray" />)}}
+    />
+
     <BottomTab.Screen 
-    name="Acceuil" 
+    name="Po'Pic" 
     component={HomePageScreen} 
     options={{tabBarIcon: ({size,color}) => (<Entypo name="leaf" size={24} color="gray" />)}}/>
+
+<BottomTab.Screen 
+    name="Leaderboard" 
+    component={LeaderboardScreen} 
+    options={{tabBarIcon: ({size,color}) => (<Ionicons name="people" size={24} color="gray" />)}}
+    />
 
     <BottomTab.Screen 
     name="Points" 
@@ -94,15 +81,11 @@ function BottomTabNavigator(navigation) {
     options={{tabBarIcon: ({size,color}) => (<Entypo name="trophy" size={24} color="gray" />)}}
     />
 
-    <BottomTab.Screen 
-    name="Amis" 
-    component={FriendsScreen} 
-    options={{tabBarIcon: ({size,color}) => (<Ionicons name="people" size={24} color="gray" />)}}
-    />
-
     </BottomTab.Navigator>
   );
 }
+
+
 
 export default function App({navigation}) {
   
@@ -112,17 +95,21 @@ export default function App({navigation}) {
     return (
       <>
               <NavigationContainer>
+             {/* <BottomTabNavigator/> */}
                 <Stack.Navigator> 
-                  {/* <Stack.Screen name="Drawer" component={DrawerNavigator} options ={{headerShown: false}} /> */}
+                 
                   <Stack.Screen name ="Po'Pic" component={BottomTabNavigator} options={{
-                    headerRight:() => {
-                      return <IconButtonProfile onPress={HeaderButtonPressHandler}/>
-                    },
-                    headerLeft:() => {
-                      return <IconButtonSettings onPress={HeaderButtonPressHandler}/>
-                    }
+                    
+                   headerShown: false,
+                    
                   }}/>
+                  
                   <Stack.Screen name="Gift Details" component={GiftDetailsScreen} />
+                  <Stack.Screen name="Profile" component={ProfileScreen} />
+                  <Stack.Screen name="Paramètres" component={SettingsScreen} options={{
+                    gestureDirection:'horizontal-inverted'
+                  }}/>
+
                 </Stack.Navigator>
               </NavigationContainer>
         </>

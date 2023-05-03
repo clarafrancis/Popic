@@ -3,6 +3,7 @@ class Gifts {
         this.id = id;
         this.task = task;
         this.points = points;
+        
     }
 }
 

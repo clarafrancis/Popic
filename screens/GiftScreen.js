@@ -11,6 +11,7 @@ import {FontAwesome5} from "@expo/vector-icons";
 import { Directions } from "react-native-gesture-handler";
 
 import LeaderboardScreen from "./LeaderboardScreen";
+import { GDETAILS } from "../data/dataGIFT";
 
 
 function renderGiftItem(itemData) {
@@ -56,15 +57,15 @@ function GiftScreen({navigation}) {
             </View>
 
             <View style={styles.midContainer}>
-                <Text style={styles.ProgressBarText}> Progression to next milestone : {"\n"} </Text>
+                <Text style={styles.ProgressBarText}> Ta progression {"\n"} </Text>
                 <ProgressBar progress={0.35} color={MD3Colors.error50}/>
                 <Text >30</Text>
                 <Text>100</Text>
 
             </View>
-            <View style={styles.bottomContainer}>
+            {/* <View style={styles.bottomContainer}>
                 <Text style={styles.midText}> WHAT'S NEW ! </Text>
-            </View>
+            </View> */}
         </View>
       
         <FlatList
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: '#44AFAB'
     }, 
-    
+
     bottomContainer:{
         flex: 1,
         // margin: 50,
@@ -176,7 +177,7 @@ const styles = StyleSheet.create({
       },
 
       ProgressBarText: {
-        textAlign: 'left',
+        textAlign: 'center',
         justifyContent: 'center',
         alignContent: 'center',
         fontSize: 15, 
