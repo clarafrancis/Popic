@@ -81,7 +81,7 @@ function HomePageScreen({navigation}) {
       </ScrollView>
 
 
-      
+      <ImagePicker/>
 
 
 {/* 
