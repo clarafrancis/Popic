@@ -58,7 +58,7 @@ const Tabs = ()=> {
             >
             <Tab.Screen name="Tips" component ={TipsScreen} options={{tabBarIcon: ({size,focused, color}) => (<Entypo name="info" size={24} color={focused? "#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
             <Tab.Screen name="Amis" component ={FriendsScreen} options={{tabBarIcon: ({size,focused,color}) => (<Ionicons name="people" size={24} color={focused? "#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
-            <Tab.Screen name="Accueil" component ={HomePageScreen} options={{tabBarIcon: ({size,focused, color}) => (<Entypo name="leaf" size={24} color={focused? "#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
+            <Tab.Screen name="Accueil" component ={HomePageScreen} options={{tabBarIcon: ({size,focused, color}) => (<Entypo name="leaf" size={40} color={focused? "#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
             {/* <Tab.Screen name="Camera" component ={ImagePicker} options={{tabBarIcon: ({size,focused,color}) =>(<MaterialCommunityIcons name="camera-iris" size={40} color={focused? "#4C7C4C" :"#4C7C4C"}/>)}}/> */}
             <Tab.Screen name="Leaderbord" component ={LeaderboardScreen} options={{tabBarIcon: ({size,focused,color}) => (<Entypo name="trophy" size={24} color={focused? "#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
             <Tab.Screen name="Points" component ={GiftScreen} options={{tabBarIcon: ({size,focused,color}) => (<MaterialCommunityIcons name="shopping" size={24} color={focused?"#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
