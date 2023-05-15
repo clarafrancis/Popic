@@ -17,8 +17,6 @@ import IconButtonProfile from "./IconButtonProfile";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import {Entypo} from "@expo/vector-icons";
 import {Ionicons} from "@expo/vector-icons";
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
-import LeaderboardScreen from "../screens/LeaderboardScreen";
 // import { MaterialIcons } from '@expo/vector-icons'; 
 
 const Tab= createBottomTabNavigator();
