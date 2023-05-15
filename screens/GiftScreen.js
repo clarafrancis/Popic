@@ -16,14 +16,14 @@ import {Entypo} from "@expo/vector-icons";
 // import LeaderboardScreen from "./LeaderboardScreen";
 // import { GDETAILS } from "../data/dataGIFT";
 
-function renderGiftItem(itemData) {
-// function PressHandler() {}
-    return (
-    <>
-    <GiftGridTile companysname={itemData.item.companysname} points={itemData.item.points} detail={itemData.item.detail} image={itemData.item.image} onPress={PressHandler}/>;
-    </>
-    );
-}
+// function renderGiftItem(itemData) {
+// // function PressHandler() {}
+//     return (
+//     <>
+//     <GiftGridTile companysname={itemData.item.companysname} points={itemData.item.points} detail={itemData.item.detail} image={itemData.item.image} onPress={PressHandler}/>;
+//     </>
+//     );
+// }
 
 
 function GiftScreen({navigation}) {
