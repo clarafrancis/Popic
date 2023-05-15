@@ -73,7 +73,6 @@ function HomePageScreen({navigation}) {
         </View>
 
         <FlatList
-
         data={IDENTIFIANTS}
         keyExtractor={(item) => item.id}
         renderItem={renderCategoryItem}

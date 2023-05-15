@@ -51,11 +51,9 @@ function ImagePicker(){
     return(
         <View>
              {/* <View style={styles.imagePreview}>{imagePreview}</View>  */}
-            <View>
             <Pressable style={styles.button} onPress={takeImageHandler}>
                 <Text style={styles.texte}>Prenez en photo votre challenge !</Text>
             </Pressable>
-            </View>
         </View>
 
     );
@@ -71,7 +69,7 @@ const styles = StyleSheet.create({
         width: '60%',
         alignSelf:'center',
         borderRadius: 20  ,
-        marginTop:250 
+        marginTop:200 
     },
     texte:{
         color: 'white',
