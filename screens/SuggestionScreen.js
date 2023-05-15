@@ -1,7 +1,14 @@
 import { View, Text, StyleSheet, Image } from "react-native";
+import AddFriendsGridTile from "../components/AddFriendsGiftsGridTile";
+import { FlatList } from "react-native-gesture-handler";
+import { ADDFRIENDS } from "../data/dataFRIENDS";
 // import { SearchBar } from "react-native-elements"; 
 
 function SuggestionScreen() {
+    function renderAddFriendsItem(itemData){
+        return <AddFriendsGridTile pp={itemData.item.pp} username={itemData.item.username}/>
+    }
+    
     return (
         <View style={styles.container}>
             <View style={styles.topContainer}>
@@ -9,9 +16,13 @@ function SuggestionScreen() {
                 <Image style={[styles.profilePic, styles.leftContainer]}
                     source={require('../assets/pp.jpg')}/>
             </View>
-        <View style={styles.bottomContainer}>
-            <Text> hi </Text> 
-        </View>
+            <View style={styles.bottomContainer}>
+                <FlatList
+                data={ADDFRIENDS}
+                keyExtractor={(item) => item.id}
+                renderItem={renderAddFriendsItem}
+                />
+            </View>
         </View>
     );
 }
