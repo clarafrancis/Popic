@@ -80,7 +80,9 @@ function HomePageScreen({navigation}) {
       </ScrollView>
 
 
+
       <ImagePicker/>
+
 
 
 {/* 
@@ -102,7 +104,7 @@ export default HomePageScreen;
 
 
 const styles = StyleSheet.create({
-    centeredView: {
+  centeredView: {
         marginTop: 65,
         padding: 10,
         borderRadius:50,
@@ -124,6 +126,7 @@ const styles = StyleSheet.create({
       width: '75%',
       borderRadius:25,
       alignSelf:'center',
+  
     },
     boite2:{
       flexDirection:'row',

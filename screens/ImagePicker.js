@@ -1,6 +1,8 @@
-import {StyleSheet, Text, Image, Pressable, View} from 'react-native';
+import {StyleSheet, Text, Image, Pressable, View,TouchableOpacity} from 'react-native';
 import {launchCameraAsync, useCameraPermissions, PermissionStatus} from 'expo-image-picker';
 import { useState } from 'react';
+
+// import { TouchableOpacity } from 'react-native-gesture-handler';
 
 function ImagePicker(){
     const [pickedImage,setPickedImage]=useState();
@@ -50,10 +52,18 @@ function ImagePicker(){
 
     return(
         <View>
+        <TouchableOpacity
+        activeOpacity={0.7}
+        onPress={takeImageHandler}
+          style={styles.touchableOpacityStyle}>
+            <Image
+            source={require('../assets/logoCamera.png')}
+            style={styles.floatingButtonStyle}/>
              {/* <View style={styles.imagePreview}>{imagePreview}</View>  */}
-            <Pressable style={styles.button} onPress={takeImageHandler}>
-                <Text style={styles.texte}>Prenez en photo votre challenge !</Text>
-            </Pressable>
+            {/* <Pressable style={styles.button} onPress={takeImageHandler}> */}
+                {/* <Text style={styles.texte}>Prenez en photo votre challenge !</Text> */}
+            {/* </Pressable> */}
+        </TouchableOpacity>
         </View>
 
     );
@@ -65,16 +75,19 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: '#4C7C4C',
         alignItems: 'center', 
-        padding: 6,
+        padding: 2,
         width: '60%',
         alignSelf:'center',
         borderRadius: 20  ,
-        marginTop:200 
+        marginTop:3 ,
+        marginBottom: 70,
     },
     texte:{
-        color: 'white',
-        fontSize: 25,
-        textAlign: 'justify'
+        color: 'green',
+        fontSize: 20,
+        textAlign: 'center',
+        backgroundColor: 'white',
+        borderRadius: 8
     },
     texte2:{
         color: 'white',
@@ -93,7 +106,21 @@ const styles = StyleSheet.create({
     image:{
         width:'100%',
         height: '100%',
+    },
+    touchableOpacityStyle: {
+        position: 'absolute',
+        width: 180,
+        height: 90,
+        alignItems: 'center',
+        justifyContent: 'center',
+        right: 100,
+        bottom: 50,
+    },
+    floatingButtonStyle: {
+        resizeMode: 'contain',
+        width: 50,
+        height: 50,
+        //backgroundColor:'black'
+
     }
-
-
 })

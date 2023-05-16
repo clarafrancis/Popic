@@ -37,12 +37,12 @@ const Tabs = ()=> {
                 tabBarShowLabel: false,
                 tabBarStyle:{
                     position: 'absolute',
-                    bottom: 20,
+                    bottom: 10,
                     left: 20,
                     right: 20,
                     // backgroundColor: 'transparent',
                     borderRadius: 100,
-                    height: 70,
+                    height: 55,
                     alignItems: 'center',
                     justifyContent: 'center',
                     borderWidth:2,
@@ -56,7 +56,24 @@ const Tabs = ()=> {
             >
             <Tab.Screen name="Tips" component ={TipsScreen} options={{tabBarIcon: ({size,focused, color}) => (<Entypo name="info" size={24} color={focused? "#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
             <Tab.Screen name="Amis" component ={FriendsScreen} options={{tabBarIcon: ({size,focused,color}) => (<Ionicons name="people" size={24} color={focused? "#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
-            <Tab.Screen name="Accueil" component ={HomePageScreen} options={{tabBarIcon: ({size,focused, color}) => (<Entypo name="leaf" size={40} color={focused? "#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
+            <Tab.Screen name="Accueil" component ={HomePageScreen} options={{tabBarIcon: ({size,focused,color}) => (<Entypo name="leaf" size={40} color={focused? "#4C7C4C" :'gray' } style={styles.tabIconsCenter}/>)}}/>
+            {/* <Tab.Screen name="Accueil" 
+            component ={HomePageScreen} 
+            options={{
+                tabBarIcon: ({focused}) => (
+                    <View style={{alignItems:"center", justifyContent:'center',top:10}}>
+                        <Image
+                        source={require('../assets/logo.png')}
+                        resizeMode="contain"
+                        style={{
+                            width: 25,
+                            height: 25,
+                            tintColor: focused?"#4C7C4C" :'gray' 
+                        }}
+                        />
+                    </View>),
+                    }}
+                    /> */}
             {/* <Tab.Screen name="Camera" component ={ImagePicker} options={{tabBarIcon: ({size,focused,color}) =>(<MaterialCommunityIcons name="camera-iris" size={40} color={focused? "#4C7C4C" :"#4C7C4C"}/>)}}/> */}
             <Tab.Screen name="Leaderbord" component ={LeaderboardScreen} options={{tabBarIcon: ({size,focused,color}) => (<Entypo name="trophy" size={24} color={focused? "#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
             <Tab.Screen name="Points" component ={GiftScreen} options={{tabBarIcon: ({size,focused,color}) => (<MaterialCommunityIcons name="shopping" size={24} color={focused?"#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
@@ -69,11 +86,19 @@ export default Tabs;
 const styles = StyleSheet.create({
     tabIcons: {
         flex : 1,
-        // flexDirection: 'row',
+        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 10,
+        padding: 12,
         // marginTop: 20,
     },
+    tabIconsCenter:{
+        flex : 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 4,
+
+    }
 
 })
