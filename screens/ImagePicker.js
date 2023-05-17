@@ -57,7 +57,7 @@ function ImagePicker(){
         onPress={takeImageHandler}
           style={styles.touchableOpacityStyle}>
             <Image
-            source={require('../assets/logoCamera.png')}
+            source={require('../assets/logoCameraV2.png')}
             style={styles.floatingButtonStyle}/>
              {/* <View style={styles.imagePreview}>{imagePreview}</View>  */}
             {/* <Pressable style={styles.button} onPress={takeImageHandler}> */}
@@ -120,7 +120,6 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         width: 50,
         height: 50,
-        //backgroundColor:'black'
-
+        // backgroundColor:'white'
     }
 })

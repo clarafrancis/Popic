@@ -62,7 +62,7 @@ function HomePageScreen({navigation}) {
       </View>
 
 
-      <ScrollView>
+      <ScrollView> 
         <View style={styles.boite}>
           <Text style={styles.textStyle3}>Repond aux quiz, récolte des feuilles et gagne des réductions!</Text>
           <View style={styles.boite2}>
@@ -77,7 +77,12 @@ function HomePageScreen({navigation}) {
         keyExtractor={(item) => item.id}
         renderItem={renderCategoryItem}
         />
-      </ScrollView>
+
+
+        <View style={styles.boite3}>
+          <Text style={styles.textStyle4}>   </Text>
+        </View>
+     </ScrollView>
 
 
 
@@ -132,6 +137,9 @@ const styles = StyleSheet.create({
       flexDirection:'row',
       justifyContent:'space-evenly'
     },
+    boite3:{
+      width: '75%',
+    },
     buttonOpen: {
         backgroundColor: '#4C7C4C',
         width: '60%',
@@ -154,6 +162,10 @@ const styles = StyleSheet.create({
     color: '#4C7C4C',
     textAlign: 'center',
     fontSize: 15
+},
+textStyle4:{
+  fontSize: 50,
+  color: '#4C7C4C',
 },
     modalText: {
         marginBottom: 13,
