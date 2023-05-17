@@ -63,6 +63,6 @@ function Parametre(){
         color: 'black',
     },
     boite:{
-        paddingTop:40
+        paddingTop:42
     }
   });
