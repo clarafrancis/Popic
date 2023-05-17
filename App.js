@@ -91,10 +91,10 @@ function BottomTabNavigator() {
     options={{tabBarIcon: ({size,color}) => (<Ionicons name="people" size={24} color="gray" />)}}
     />
 
-    <BottomTab.Screen 
+    {/* <BottomTab.Screen 
     name="Po'Pic" 
     component={HomePageScreen} 
-    options={{tabBarIcon: ({size,color}) => (<Entypo name="leaf" size={24} color="gray" />)}}/>
+    options={{tabBarIcon: ({size,color}) => (<Entypo name="leaf" size={24} color="gray" />)}}/> */}
 
     <BottomTab.Screen 
     name="Leaderboard" 

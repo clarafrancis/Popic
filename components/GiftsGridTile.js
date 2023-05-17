@@ -108,8 +108,8 @@ const styles = StyleSheet.create({
         // alignItems: 'center',
         alignContent: 'center',
         textAlign: 'center', 
-        // height: 40, 
-        flexGrow:'20%'
+        flexGrow:'20%' 
+
 
     },
 

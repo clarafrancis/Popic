@@ -25,14 +25,15 @@ import {Entypo} from "@expo/vector-icons";
 //     );
 // }
 
-const endList = () => { 
-  return ( 
-    <View style={styles.endList}>
+// const endList = () => { 
+//   return ( 
+//     <View style={styles.endList}>
 
-    </View>
-  )
-}
-function GiftScreen({navigation}) {
+//     </View>
+//   ); 
+// }; 
+
+function GiftScreen({ }) {
     function renderGiftItem(itemData) {
         // function PressHandler() {
         //     navigation.navigate("Gift Details", {
@@ -81,7 +82,7 @@ function GiftScreen({navigation}) {
         {/* </View> */}
       
         <FlatList 
-        ListFooterComponent={endList}
+        // ListFooterComponent={endList}
         data={GIFTS}
         keyExtractor={(item) => item.id }
         renderItem={renderGiftItem
@@ -125,8 +126,8 @@ const styles = StyleSheet.create({
         padding: 10,
         borderBottomWidth: 1,
         backgroundColor: '#fff',
-        shadowRadius: 3,
-        shadowColor: 'grey', 
+        // shadowRadius: 3,
+        // shadowColor: 'grey', 
         // flexDirection: 'row',
         // marginLeft: 10,
         // marginRight: 10,
