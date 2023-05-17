@@ -5,6 +5,7 @@ export const GIFTS = [
     new Gifts('g1', 'Discount1', '30', '900Care', 'Get 10% discount on a shampoo', 'https://image.over-blog.com/kV963okN7DDdh932HjBIFA4nA5M=/filters:no_upscale()/image%2F0991136%2F20220626%2Fob_4045db_ahr0chm6ly9jzg4uc2hvcglmes5jb20vcy9maw.jpg'),
     new Gifts('g2', 'Discount2', '100', 'The Body Shop', 'Get 10% discount on a vegan make up remover', 'https://www.madmoizelle.com/wp-content/uploads/2019/02/nouveautes-printemps-de-the-body-shop.jpg'),
     new Gifts('g3', 'Discount3', '200', 'BioCoop', 'Get 10% discount on almonds', 'https://www.ecommercemag.fr/Assets/Img/BREVE/2021/3/358518/Belle-croissance-Biocoop-2020-F.jpg'),
+    // new Gifts('g4'),
 ]; 
 
 // export const GDETAILS = [

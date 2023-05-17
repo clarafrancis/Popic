@@ -1,14 +1,25 @@
-import { View, Text, StyleSheet, Image, FlatList} from "react-native";
+import { View, Text, StyleSheet, Image, FlatList, Pressable, Clipboard} from "react-native"; 
+// import Clipboard from '@react-native-clipboard/clipboard';
 import AddFriendsGridTile from "../components/AddFriendsGridTile.js";
 // import { FlatList } from "react-native-gesture-handler";
 import { ADDFRIENDS } from "../data/dataFRIENDS";
-import { StatusBar } from "expo-status-bar";
+import { StatusBar } from "expo-status-bar"; 
+
 // import { SearchBar } from "react-native-elements"; 
+
+import {AntDesign} from '@expo/vector-icons'
+
+
+const linkProfile = 'picyourpo.p.com' 
+const copyIt = () => Clipboard.setString(linkProfile)
 
 function SuggestionScreen() {
     function renderAddFriendsItem(itemData){
         return <AddFriendsGridTile pp={itemData.item.pp} username={itemData.item.username}/>};
-
+        
+    function HeaderButtonPressHandler() {
+        console.log('Pressed')
+    }
     
     
     return (
@@ -23,8 +34,19 @@ function SuggestionScreen() {
             </View>
 
             <View style={styles.topRContainer}>
-                <Text style={{fontWeight: 'bold'}}>Invite tes amis à rejoindre Po'Pic</Text>
-                <Text style={styles.url}>picyourpo.p.com</Text>
+                <Text style={{fontWeight: 'bold'}}>Invite tes amis à rejoindre Po'Pic</Text> 
+                
+                <View style={{flexDirection: 'row'}}>
+                    <View style={{borderRadius: 15, backgroundColor: 'white', height: 25}}>
+                        <Text style={styles.url}>{linkProfile}</Text>
+                    </View>
+
+                    <View style={{flexDirection: 'row', zIndex: 1, marginLeft: -35, marginTop: -25/2}}>
+                            <Pressable style={styles.button} onPress={copyIt}>
+                            <Text> <AntDesign name={'sharealt'} size={40} color={'white'}/> </Text> 
+                            </Pressable>
+                        </View>
+                </View>
             </View>
             {/* <View style={styles.bottomContainer}>
                 
@@ -73,6 +95,7 @@ const styles = StyleSheet.create({
 
     topRContainer: {
         flex : 2, 
+        flexDirection: 'column', 
         padding: 16, 
         // textAlign: 'center', 
         justifyContent: 'space-between'
@@ -116,11 +139,23 @@ const styles = StyleSheet.create({
           }, 
 
         url: {
-            backgroundColor: 'white', 
+            // backgroundColor: 'white', 
             color: '#4C7C4C', 
+            padding: 2, 
+            marginLeft: 2, 
+            marginRight: 60, 
             // borderWidth: 2, 
-            borderRadius: 10, 
-            // borderColor: 'white', 
+            // borderRadius: 10, 
+        }, 
+
+        button: {
+            borderRadius: 65, 
+            backgroundColor: '#4C7C4C', 
+            padding: 2, 
+            height: 50, 
+            width: 50, 
+            alignItems: 'center', 
+            justifyContent: 'center', 
         }
 
 })

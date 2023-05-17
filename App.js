@@ -37,7 +37,7 @@ const BottomTab = createBottomTabNavigator();
 
 
 // function BottomTabNavigator({navigation, route}) {
-//   function HeaderButtonPressHandler() {
+//    function HeaderButtonPressHandler() {
 //     console.log('Pressed')
 // }}
   
