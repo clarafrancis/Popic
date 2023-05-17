@@ -6,7 +6,7 @@ import { SimpleLineIcons } from "@expo/vector-icons";
 import {FontAwesome} from "@expo/vector-icons";
 import {MaterialIcons} from "@expo/vector-icons";
 import {Ionicons} from "@expo/vector-icons";
-// import {MaterialCommunityIcon} from "@expo/vector-icons";
+ import {MaterialCommunityIcon} from "@expo/vector-icons";
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator} from '@react-navigation/drawer';
@@ -96,7 +96,7 @@ function BottomTabNavigator() {
     component={HomePageScreen} 
     options={{tabBarIcon: ({size,color}) => (<Entypo name="leaf" size={24} color="gray" />)}}/>
 
-<BottomTab.Screen 
+    <BottomTab.Screen 
     name="Leaderboard" 
     component={LeaderboardScreen} 
     options={{tabBarIcon: ({size,color}) => (<Ionicons name="people" size={24} color="gray" />)}}

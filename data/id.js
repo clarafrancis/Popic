@@ -1,4 +1,5 @@
 import identifiants from "../models/identifiants";
+import { Imagesource } from "react-native-elements";
 
 export const IDENTIFIANTS =[
     new identifiants('https://www.shutterstock.com/image-vector/faceless-woman-face-icon-female-260nw-2263344341.jpg','c1','@Clara','https://www.m-habitat.fr/medias/image/faire-appel-a-un-jardinier-pour-entretenir-son-jardin-1933-640-0.jpg','Que represente cette image? \n \n Arrose des plante  \n Tri ses déchets'),
