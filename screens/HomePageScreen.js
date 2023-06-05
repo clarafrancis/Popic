@@ -72,7 +72,9 @@ function HomePageScreen({navigation}) {
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle2}>Challenge du jour: Arroser vos plantes</Text>
+              <Text style={styles.textStyle2}> Challenge du jour:
+              {"\n"}Arroser vos plantes!{"\n"}</Text>
+              <ImagePicker/>
             </Pressable>
         </View>
       </Modal>
@@ -98,8 +100,7 @@ function HomePageScreen({navigation}) {
 
 
 
-      <ImagePicker/>
-
+      
 
 
 {/* 
@@ -122,8 +123,8 @@ export default HomePageScreen;
 
 const styles = StyleSheet.create({
   centeredView: {
-        marginTop: 65,
-        padding: 10,
+        // marginTop: 65,
+        // padding: 10,
         borderRadius:50,
         alignItems: 'center',
         justifyContent: 'center',
@@ -131,7 +132,6 @@ const styles = StyleSheet.create({
         width: '105%'
     },
     button: {
-        padding: 10,
         elevation: 2,
         borderRadius:50,
         alignItems: 'center',
@@ -155,10 +155,14 @@ const styles = StyleSheet.create({
     buttonOpen: {
         backgroundColor: '#4C7C4C',
         width: '60%',
+        padding: 10,
     },
     buttonClose: {
         backgroundColor: '#C9DCBD',
-        width: '80%',
+        width: '90%',
+        marginTop:'17%',
+        height:160,
+      
     },
     textStyle: {
         color: 'white',
@@ -187,9 +191,9 @@ textStyle4:{
         // flex: 1, 
         flexDirection: 'column',// main axis en colonne VS Cross axis en ligne
         backgroundColor: '#fff',//permet d'avoir des bords autour des objects
-        paddingTop:20,// dessend les icones
+        paddingTop:17,// dessend les icones
         paddingBottom:20,
-        padding: 4,
+        // padding: 4,
         borderColor: '#91CAA2',
 
         // alignItems: 'center',
@@ -199,7 +203,7 @@ textStyle4:{
         borderColor: '#91CAA2',
         borderWidth: 2,
         backgroundColor: '#C6E2CF', 
-        padding: 2, //permet d'avoir des bords dans la boite
+        padding: 9, //permet d'avoir des bords dans la boite
         alignItems: 'center', //texte centrer dans la boite
         width: '80%',//longeur de ma boite
         elevation:9,
