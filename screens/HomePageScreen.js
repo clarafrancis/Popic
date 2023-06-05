@@ -10,6 +10,28 @@ import {AntDesign} from "@expo/vector-icons";
 import {Entypo} from "@expo/vector-icons";
 import { ScrollView } from 'react-native-gesture-handler';
 import {LinearGradient} from "expo-linear-gradient";
+
+const endList = () => { 
+    return ( 
+  <View style={styles.endList}>
+  </View>
+  ); 
+ }; 
+
+const topList = () => { 
+return ( 
+  <View style={styles.boite}>
+  <Text style={styles.textStyle3}>Repond aux quiz, récolte des feuilles et gagne des réductions!</Text>
+  <View style={styles.boite2}>
+    <AntDesign name="questioncircle" size={24} color="gray" />
+    <Ionicons name="ios-arrow-forward" size={32} color="gray" />
+    <Entypo name="leaf" size={24} color="gray" />
+  </View>
+  </View>
+); 
+}; 
+
+
 // import Bouttons from '../Components/Bouttons';
 
 // function PageAcceuil({navigation}) {
@@ -62,27 +84,17 @@ function HomePageScreen({navigation}) {
       </View>
 
 
-      {/* <ScrollView>  */}
-        <View style={styles.boite}>
-          <Text style={styles.textStyle3}>Repond aux quiz, récolte des feuilles et gagne des réductions!</Text>
-          <View style={styles.boite2}>
-            <AntDesign name="questioncircle" size={24} color="gray" />
-            <Ionicons name="ios-arrow-forward" size={32} color="gray" />
-            <Entypo name="leaf" size={24} color="gray" />
-          </View>
-        </View>
+        
 
         <FlatList
-        data={IDENTIFIANTS}
-        keyExtractor={(item) => item.id}
-        renderItem={renderCategoryItem}
+          ListHeaderComponent={topList}
+          data={IDENTIFIANTS}
+          keyExtractor={(item) => item.id}
+          renderItem={renderCategoryItem}
+          ListFooterComponent={endList}
         />
 
 
-        <View style={styles.boite3}>
-          <Text style={styles.textStyle4}>   </Text>
-        </View>
-     {/* </ScrollView> */}
 
 
 
@@ -219,5 +231,9 @@ textStyle4:{
     Image2:{
         width:50,
         height:50,
+    },
+    endList: { 
+      height: 90, 
     }
+
 })
