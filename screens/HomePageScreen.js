@@ -62,7 +62,7 @@ function HomePageScreen({navigation}) {
       </View>
 
 
-      <ScrollView> 
+      {/* <ScrollView>  */}
         <View style={styles.boite}>
           <Text style={styles.textStyle3}>Repond aux quiz, récolte des feuilles et gagne des réductions!</Text>
           <View style={styles.boite2}>
@@ -82,7 +82,7 @@ function HomePageScreen({navigation}) {
         <View style={styles.boite3}>
           <Text style={styles.textStyle4}>   </Text>
         </View>
-     </ScrollView>
+     {/* </ScrollView> */}
 
 
 

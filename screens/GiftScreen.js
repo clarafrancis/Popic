@@ -82,11 +82,11 @@ function GiftScreen({ }) {
         {/* </View> */}
       
         <FlatList 
-        // ListFooterComponent={endList}
+        // style={{flex:1}}
+        ListFooterComponent={endList}
         data={GIFTS}
         keyExtractor={(item) => item.id }
         renderItem={renderGiftItem
-          
         } 
         /> 
 

@@ -36,19 +36,25 @@ const Tabs = ()=> {
                 // headerShown: true,
                 tabBarShowLabel: false,
                 tabBarStyle:{
+                    // display: 'flex', 
+                    flex: 1, 
+                    // flexDirection: 'row',
                     position: 'absolute',
                     bottom: 10,
                     left: 20,
                     right: 20,
-                    // backgroundColor: 'transparent',
+                    // padding: 'auto', 
+                    // margin: 'auto', 
+                    // backgroundColor: 'blue',
                     borderRadius: 100,
-                    height: 55,
+                    height: 100,
                     alignItems: 'center',
-                    justifyContent: 'center',
+                    justifyContent: 'center', 
                     borderWidth:2,
                     borderTopWidth:2,
                     borderTopColor: '#4C7C4C',
-                    borderColor: '#4C7C4C',
+                    borderColor: '#4C7C4C', 
+                    // marginTop: 10, 
                     // padding: 10,
                     // paddingTop: 10,
                 },
@@ -61,19 +67,21 @@ const Tabs = ()=> {
             component ={HomePageScreen} 
             options={{
                 tabBarIcon: ({focused}) => (
-                    <View style={{alignItems:"center", justifyContent:'center',top:0}}>
+                    <View style={{alignItems:"center", justifyContent:'center'}}>
                         <Image
                         source={require('../assets/logoV2.png')}
                         resizeMode="contain"
                         style={{
                             width: 40,
-                            height: 40,
+                            height: 40, 
+                            // alignItems: 'center', 
                             // tintColor: focused?"#4C7C4C" :'gray' 
                         }}
                         />
                     </View>),
                     }}
                     />
+                    {/* <Tab.Screen name="Accueil" /> */}
             {/* <Tab.Screen name="Camera" component ={ImagePicker} options={{tabBarIcon: ({size,focused,color}) =>(<MaterialCommunityIcons name="camera-iris" size={40} color={focused? "#4C7C4C" :"#4C7C4C"}/>)}}/> */}
             <Tab.Screen name="Leaderbord" component ={LeaderboardScreen} options={{tabBarIcon: ({size,focused,color}) => (<Entypo name="trophy" size={24} color={focused? "#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
             <Tab.Screen name="Points" component ={GiftScreen} options={{tabBarIcon: ({size,focused,color}) => (<MaterialCommunityIcons name="shopping" size={24} color={focused?"#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
@@ -88,16 +96,18 @@ const styles = StyleSheet.create({
         flex : 1,
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'center',
-        padding: 12,
+        justifyContent: 'center', 
+        // marginTop: 10
+        // padding: 12,
+        margin: 'auto'
         // marginTop: 20,
     },
     tabIconsCenter:{
         flex : 1,
         flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 4,
+        alignItems: 'top',
+        justifyContent: 'top',
+        // padding: 4,
 
     }
 

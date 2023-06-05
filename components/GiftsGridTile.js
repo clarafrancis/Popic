@@ -108,9 +108,7 @@ const styles = StyleSheet.create({
         // alignItems: 'center',
         alignContent: 'center',
         textAlign: 'center', 
-        flexGrow:'20%' 
-
-
+        flexGrow: 0.2
     },
 
     innerMidContainer: {
@@ -124,7 +122,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         justifyContent: 'center',
         // backgroundColor: 'black',
-        flexGrow: '70%'
+        flexGrow: 0.7,
     },
     innerBottomContainer: {
         flex: 1, 
@@ -134,7 +132,7 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         textAlign: 'center', 
         // height: 40, 
-        flexGrow: '10%',
+        flexGrow: 0.1,
 
     }, 
     image: {

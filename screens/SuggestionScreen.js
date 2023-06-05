@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
         // flex: 1,
         flexDirection: 'row',
         padding: 10, 
-        textAlign: 'center',
+        // textAlign: 'center', 
         alignItems: 'center'
     }, 
 
