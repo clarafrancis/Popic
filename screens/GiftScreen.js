@@ -25,13 +25,13 @@ import {Entypo} from "@expo/vector-icons";
 //     );
 // }
 
-// const endList = () => { 
-//   return ( 
-//     <View style={styles.endList}>
+const endList = () => { 
+  return ( 
+    <View style={styles.endList}>
 
-//     </View>
-//   ); 
-// }; 
+    </View>
+  ); 
+}; 
 
 function GiftScreen({ }) {
     function renderGiftItem(itemData) {

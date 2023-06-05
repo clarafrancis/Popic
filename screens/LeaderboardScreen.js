@@ -30,19 +30,32 @@ function LeaderboardScreen() {
         </View> 
          */}
 
-         <View>
-            <View>
+         <View style={styles.podium}>
+            <View style={styles.second}>
+                <View> 
+                    
+                </View> 
                 <View>
+
                 </View>
             </View> 
-            <View>
+            <View style={styles.first}>
+                <View>
+
+                </View>
                 <View>
 
                 </View>
             
             </View> 
-            <View>
-                
+            <View style={styles.third}>
+                <View>
+
+                </View> 
+                <View>
+
+                </View>
+
             </View>
          </View>
         </>
@@ -71,7 +84,21 @@ const styles = StyleSheet.create({
 
     podium: { 
         flex: 3, 
+        flexDirection: 'row', 
         height: 100, 
+    }, 
+
+    second:{
+        flex: 2, 
+        flexDirection: 'column'
+    }, 
+    first:{
+        flex: 2, 
+        flexDirection: 'column'
+    }, 
+    third:{
+        flex: 2, 
+        flexDirection: 'column'
     }
 
     // podium: {
