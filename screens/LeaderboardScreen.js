@@ -23,12 +23,28 @@ function LeaderboardScreen() {
         {/* <View style={styles.podium}> 
             <View style={{height: 60, backgroundColor: '#C9DCBD'}}> </View> 
             
-        </View> */} 
+        </View> */}
 
         {/* <View style={ styles.podium}>
             <Text><Ionicons name={'podium-outline'} size={200}/></Text>
-        </View>  */}
-        
+        </View> 
+         */}
+
+         <View>
+            <View>
+                <View>
+                </View>
+            </View> 
+            <View>
+                <View>
+
+                </View>
+            
+            </View> 
+            <View>
+                
+            </View>
+         </View>
         </>
     );
 }
