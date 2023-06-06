@@ -1,7 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { StyleSheet,Text,View,Image,TouchableOpacity } from "react-native"; 
-// import { NavigationContainer } from "@react-navigation/native"; 
 import { useNavigation } from '@react-navigation/native';
 
 import LeaderboardScreen from "../screens/LeaderboardScreen";
@@ -13,11 +12,9 @@ import ImagePicker from '../screens/ImagePicker';
 import IconButtonSettings from './IconButtonSettings';
 import IconButtonProfile from "./IconButtonProfile";
 
-
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import {Entypo} from "@expo/vector-icons";
 import {Ionicons} from "@expo/vector-icons";
-// import { MaterialIcons } from '@expo/vector-icons'; 
 
 const Tab= createBottomTabNavigator();
 
@@ -25,6 +22,7 @@ const Tabs = ()=> {
     const navigation = useNavigation();
     return(
         <Tab.Navigator
+        initialRouteName="PoPic"
             screenOptions={{
                 headerRight:() => {
                     return <IconButtonProfile onPress={()=>navigation.navigate('Profile')}/>
@@ -39,31 +37,23 @@ const Tabs = ()=> {
                     // display: 'flex', 
                     flex: 1, 
                     // flexDirection: 'row',
-                    position: 'absolute',
-                    bottom: 10,
-                    left: 20,
-                    right: 20,
-                    // padding: 'auto', 
-                    // margin: 'auto', 
-                    // backgroundColor: 'blue',
+                    bottom: '1%',
                     borderRadius: 100,
-                    height: 100,
+                    maxHeight: '6%',
+                    maxWidth:'97%',
                     alignItems: 'center',
                     justifyContent: 'center', 
                     borderWidth:2,
                     borderTopWidth:2,
                     borderTopColor: '#4C7C4C',
                     borderColor: '#4C7C4C', 
-                    // marginTop: 10, 
-                    // padding: 10,
-                    // paddingTop: 10,
+                    paddingTop: '2%',
                 },
             }}
             >
-            <Tab.Screen name="Tips" component ={TipsScreen} options={{tabBarIcon: ({size,focused, color}) => (<Entypo name="info" size={24} color={focused? "#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
+            <Tab.Screen name="Information" component ={TipsScreen} options={{tabBarIcon: ({size,focused, color}) => (<Entypo name="info" size={24} color={focused? "#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
             <Tab.Screen name="Amis" component ={FriendsScreen} options={{tabBarIcon: ({size,focused,color}) => (<Ionicons name="people" size={24} color={focused? "#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
-            {/* <Tab.Screen name="Accueil" component ={HomePageScreen} options={{tabBarIcon: ({size,focused,color}) => (<Entypo name="leaf" size={40} color={focused? "#4C7C4C" :'gray' } style={styles.tabIconsCenter}/>)}}/> */}
-            <Tab.Screen name="Po'Pic" 
+            <Tab.Screen name="PoPic" 
             component ={HomePageScreen} 
             options={{
                 tabBarIcon: ({focused}) => (
@@ -74,18 +64,15 @@ const Tabs = ()=> {
                         style={{
                             width: 40,
                             height: 40, 
-                            // alignItems: 'center', 
-                            // tintColor: focused?"#4C7C4C" :'gray' 
+                            marginBottom:'6%',
                         }}
                         />
                     </View>),
                     }}
                     />
-                    {/* <Tab.Screen name="Accueil" /> */}
-            {/* <Tab.Screen name="Camera" component ={ImagePicker} options={{tabBarIcon: ({size,focused,color}) =>(<MaterialCommunityIcons name="camera-iris" size={40} color={focused? "#4C7C4C" :"#4C7C4C"}/>)}}/> */}
-            <Tab.Screen name="Leaderbord" component ={LeaderboardScreen} options={{tabBarIcon: ({size,focused,color}) => (<Entypo name="trophy" size={24} color={focused? "#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
-            <Tab.Screen name="Points" component ={GiftScreen} options={{tabBarIcon: ({size,focused,color}) => (<MaterialCommunityIcons name="shopping" size={24} color={focused?"#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
-        </Tab.Navigator>
+            <Tab.Screen name="Classement" component ={LeaderboardScreen} options={{tabBarIcon: ({size,focused,color}) => (<Entypo name="trophy" size={24} color={focused? "#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
+            <Tab.Screen name="Points" component ={GiftScreen} options={{tabBarIcon: ({size,focused,color}) => (<MaterialCommunityIcons name="shopping" size={24} color={focused?"#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>    
+       </Tab.Navigator>
     );
 }
 
@@ -97,18 +84,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center', 
-        // marginTop: 10
-        // padding: 12,
-        margin: 'auto'
-        // marginTop: 20,
-    },
-    tabIconsCenter:{
-        flex : 1,
-        flexDirection: 'row',
-        alignItems: 'top',
-        justifyContent: 'top',
-        // padding: 4,
 
     }
-
 })

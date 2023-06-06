@@ -10,6 +10,28 @@ import {AntDesign} from "@expo/vector-icons";
 import {Entypo} from "@expo/vector-icons";
 import { ScrollView } from 'react-native-gesture-handler';
 import {LinearGradient} from "expo-linear-gradient";
+
+const endList = () => { 
+    return ( 
+  <View style={styles.endList}>
+  </View>
+  ); 
+ }; 
+
+const topList = () => { 
+return ( 
+  <View style={styles.boite}>
+  <Text style={styles.textStyle3}>Repond aux quiz, récolte des feuilles et gagne des réductions!</Text>
+  <View style={styles.boite2}>
+    <AntDesign name="questioncircle" size={24} color="gray" />
+    <Ionicons name="ios-arrow-forward" size={32} color="gray" />
+    <Entypo name="leaf" size={24} color="gray" />
+  </View>
+  </View>
+); 
+}; 
+
+
 // import Bouttons from '../Components/Bouttons';
 
 // function PageAcceuil({navigation}) {
@@ -50,7 +72,9 @@ function HomePageScreen({navigation}) {
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle2}>Challenge du jour: Arroser vos plantes</Text>
+              <Text style={styles.textStyle2}> Challenge du jour:
+              {"\n"}Arroser vos plantes!{"\n"}</Text>
+              <ImagePicker/>
             </Pressable>
         </View>
       </Modal>
@@ -62,32 +86,21 @@ function HomePageScreen({navigation}) {
       </View>
 
 
-      {/* <ScrollView>  */}
-        <View style={styles.boite}>
-          <Text style={styles.textStyle3}>Repond aux quiz, récolte des feuilles et gagne des réductions!</Text>
-          <View style={styles.boite2}>
-            <AntDesign name="questioncircle" size={24} color="gray" />
-            <Ionicons name="ios-arrow-forward" size={32} color="gray" />
-            <Entypo name="leaf" size={24} color="gray" />
-          </View>
-        </View>
+        
 
         <FlatList
-        data={IDENTIFIANTS}
-        keyExtractor={(item) => item.id}
-        renderItem={renderCategoryItem}
+          ListHeaderComponent={topList}
+          data={IDENTIFIANTS}
+          keyExtractor={(item) => item.id}
+          renderItem={renderCategoryItem}
+          ListFooterComponent={endList}
         />
 
 
-        <View style={styles.boite3}>
-          <Text style={styles.textStyle4}>   </Text>
-        </View>
-     {/* </ScrollView> */}
 
 
 
-      <ImagePicker/>
-
+      
 
 
 {/* 
@@ -110,8 +123,8 @@ export default HomePageScreen;
 
 const styles = StyleSheet.create({
   centeredView: {
-        marginTop: 65,
-        padding: 10,
+        // marginTop: 65,
+        // padding: 10,
         borderRadius:50,
         alignItems: 'center',
         justifyContent: 'center',
@@ -119,7 +132,6 @@ const styles = StyleSheet.create({
         width: '105%'
     },
     button: {
-        padding: 10,
         elevation: 2,
         borderRadius:50,
         alignItems: 'center',
@@ -143,10 +155,14 @@ const styles = StyleSheet.create({
     buttonOpen: {
         backgroundColor: '#4C7C4C',
         width: '60%',
+        padding: 10,
     },
     buttonClose: {
         backgroundColor: '#C9DCBD',
-        width: '80%',
+        width: '90%',
+        marginTop:'17%',
+        height:160,
+      
     },
     textStyle: {
         color: 'white',
@@ -175,9 +191,9 @@ textStyle4:{
         // flex: 1, 
         flexDirection: 'column',// main axis en colonne VS Cross axis en ligne
         backgroundColor: '#fff',//permet d'avoir des bords autour des objects
-        paddingTop:20,// dessend les icones
+        paddingTop:17,// dessend les icones
         paddingBottom:20,
-        padding: 4,
+        // padding: 4,
         borderColor: '#91CAA2',
 
         // alignItems: 'center',
@@ -187,7 +203,7 @@ textStyle4:{
         borderColor: '#91CAA2',
         borderWidth: 2,
         backgroundColor: '#C6E2CF', 
-        padding: 2, //permet d'avoir des bords dans la boite
+        padding: 9, //permet d'avoir des bords dans la boite
         alignItems: 'center', //texte centrer dans la boite
         width: '80%',//longeur de ma boite
         elevation:9,
@@ -219,5 +235,9 @@ textStyle4:{
     Image2:{
         width:50,
         height:50,
+    },
+    endList: { 
+      height: 90, 
     }
+
 })

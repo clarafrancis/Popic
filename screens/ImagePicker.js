@@ -108,18 +108,19 @@ const styles = StyleSheet.create({
         height: '100%',
     },
     touchableOpacityStyle: {
-        position: 'absolute',
-        width: 180,
-        height: 90,
-        alignItems: 'center',
-        justifyContent: 'center',
-        right: 100,
-        bottom: 50,
+        // position: 'absolute',
+        //width: 190,
+        // height:'20%',
+        // alignItems: 'center',
+        // justifyContent: 'center',
+        // right: '44%',
+        // bottom: 6,
     },
     floatingButtonStyle: {
         resizeMode: 'contain',
         width: 50,
         height: 50,
-        // backgroundColor:'white'
+        backgroundColor: 'white',
+        borderRadius:40
     }
 })
