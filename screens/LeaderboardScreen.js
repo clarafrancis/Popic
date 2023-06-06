@@ -32,32 +32,36 @@ function LeaderboardScreen() {
 
          <View style={styles.podium}>
             <View style={styles.second}>
-                <View> 
-                    
+                <View style={{height: 65}}> 
+                    {/* <Text>Hello</Text> */}
                 </View> 
-                <View>
-
+                <View style={{height: 65, backgroundColor: '#C9DCBD', borderBottomLeftRadius: 10, borderTopWidth: 5, borderTopColor: '#C9C9C9'}}>
+                    
                 </View>
             </View> 
             <View style={styles.first}>
-                <View>
+                <View style={{height: 40}}> 
+                {/* <Text>Hello</Text> */}
 
                 </View>
-                <View>
+                <View style={{height: 90, backgroundColor: '#C9DCBD', borderTopWidth: 5, borderTopColor: '#F0C63E'}}>
 
                 </View>
             
             </View> 
             <View style={styles.third}>
-                <View>
+                <View style={{height: 90}}>
 
                 </View> 
-                <View>
+                <View style={{height: 40, backgroundColor: '#C9DCBD', borderBottomRightRadius: 10, borderTopWidth: 5, borderTopColor: '#CA8A2B'}}>
 
                 </View>
 
             </View>
-         </View>
+         </View> 
+         {/* <View>
+            <Text> hello </Text>
+         </View> */}
         </>
     );
 }
@@ -86,19 +90,26 @@ const styles = StyleSheet.create({
         flex: 3, 
         flexDirection: 'row', 
         height: 100, 
+        paddingLeft: 20, 
+        paddingRight: 20, 
+        // marginBottom: 500, 
+        // justifyContent: 'flex-end'
     }, 
 
     second:{
         flex: 2, 
-        flexDirection: 'column'
+        flexDirection: 'column', 
+        // justifyContent: 'flex-end'
     }, 
     first:{
         flex: 2, 
-        flexDirection: 'column'
+        flexDirection: 'column', 
+        // justifyContent: 'flex-end'
     }, 
     third:{
         flex: 2, 
-        flexDirection: 'column'
+        flexDirection: 'column', 
+        // justifyContent: 'flex-end'
     }
 
     // podium: {
