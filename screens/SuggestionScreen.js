@@ -4,14 +4,25 @@ import AddFriendsGridTile from "../components/AddFriendsGridTile.js";
 // import { FlatList } from "react-native-gesture-handler";
 import { ADDFRIENDS } from "../data/dataFRIENDS";
 import { StatusBar } from "expo-status-bar"; 
-
+// import {React} from "react"; 
+import * as React from "react"
+import { useState } from "react";
 // import { SearchBar } from "react-native-elements"; 
 
+import { Searchbar } from "react-native-paper";
 import {AntDesign} from '@expo/vector-icons'
 
 
 const linkProfile = 'picyourpo.p.com' 
-const copyIt = () => Clipboard.setString(linkProfile)
+const copyIt = () => Clipboard.setString(linkProfile) 
+const topList = () => {
+    return ( 
+        <View style={{marginLeft: 5}}>
+            <Text style={{fontWeight: 'bold', fontSize: 15}}> Personnes que vous connaissez peut-être...</Text>
+        </View>
+
+    ); 
+} 
 
 function SuggestionScreen() {
     function renderAddFriendsItem(itemData){
@@ -20,12 +31,24 @@ function SuggestionScreen() {
     function HeaderButtonPressHandler() {
         console.log('Pressed')
     }
+
+    const [searchQuery, setSearchQuery] = React.useState( '' ) ;
+    const onChangeSearch = query => setSearchQuery( query ) ;
     
     
     return (
         <>
-        <StatusBar style="light"/>
-        <View style={styles.container}>
+        <StatusBar style="light"/> 
+        
+        <Searchbar 
+        placeholder='Search' 
+        onChangeText={onChangeSearch} 
+        value={searchQuery} 
+        style= {{backgroundColor: "#C9DCBD", margin: 16, height: 40, justifyContent: 'center'}}/>
+
+        <View style={styles.container}> 
+        
+        
             <View style={styles.topLContainer}>
             
                 {/* <Text>You don't have any friends yet</Text> */}
@@ -54,7 +77,8 @@ function SuggestionScreen() {
             
         </View>
 
-        <FlatList
+        <FlatList 
+        ListHeaderComponent={topList}
         data={ADDFRIENDS}
         keyExtractor={(item) => item.id}
         renderItem={renderAddFriendsItem}
@@ -156,7 +180,10 @@ const styles = StyleSheet.create({
             width: 50, 
             alignItems: 'center', 
             justifyContent: 'center', 
-        }
+        }, 
+        // suggestion { 
+
+        // }
 
 })
 
