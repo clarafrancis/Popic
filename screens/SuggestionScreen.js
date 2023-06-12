@@ -44,7 +44,8 @@ function SuggestionScreen() {
         placeholder='Search' 
         onChangeText={onChangeSearch} 
         value={searchQuery} 
-        style= {{backgroundColor: "#C9DCBD", margin: 16, height: 40, justifyContent: 'center'}}/>
+        style= {{backgroundColor: "#C9DCBD", margin: 16, 
+        justifyContent: 'center'}}/>
 
         <View style={styles.container}> 
         

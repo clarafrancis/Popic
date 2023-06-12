@@ -1,5 +1,5 @@
 import { useState, useLayoutEffect,useContext } from 'react';
-import {StyleSheet, Text, TextInput, View, Button, SectionList, SafeAreaView, Image, Pressable, Modal, Views, Alert } from 'react-native';
+import {StyleSheet, Text, TextInput, View, Button, SectionList, SafeAreaView, Image, Pressable, Modal, Views, Alert} from 'react-native';
 // import AppContainer from "react-native-web/dist/exports/AppRegistry/AppContainer";
 import {Entypo} from "@expo/vector-icons";
 import { SimpleLineIcons } from "@expo/vector-icons"; 
@@ -30,6 +30,7 @@ import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
 import AuthContextProvider, { AuthContext } from './store/auth-context';
 import Tabs from './components/tabs'
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Stack = createNativeStackNavigator(); 
 const BottomTab = createBottomTabNavigator();
@@ -143,7 +144,7 @@ function AuthenticatedStack({navigation}) {
                   <Stack.Screen name ="Po'Pic" component={TabNavigation} options ={{headerShown: false,}}/>
                   <Stack.Screen name="Gift Details" component={GiftDetailsScreen} />
                   <Stack.Screen name ="Paramètres" component={SettingsScreen} />
-                  <Stack.Screen name ="Profile" component={ProfileScreen}/>
+                  <Stack.Screen name ="Profile" component={ProfileScreen}/> 
                 </Stack.Navigator> 
   );
 }
@@ -162,6 +163,7 @@ export default function App() {
     
     return (
       <>
+      {/* // <SafeAreaView>  */}
               {/* <NavigationContainer>
                 <Stack.Navigator> 
                   <Stack.Screen name ="Po'Pic" component={BottomTabNavigator}/>
@@ -172,6 +174,7 @@ export default function App() {
             <AuthContextProvider>
             <Navigation />
             </AuthContextProvider>  
+        {/* // </SafeAreaView> */}
         </>
     );
 

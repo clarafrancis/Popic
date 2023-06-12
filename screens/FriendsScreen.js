@@ -7,7 +7,14 @@ const topTab = createMaterialTopTabNavigator();
 
 function FriendsTab() {
   return (
-    <topTab.Navigator>
+    <topTab.Navigator 
+    tabBarOptions={ {
+      activeTintColor: "green", 
+      inactiveTintColor: "blue" 
+    }
+
+    }
+    >
       <topTab.Screen name="Suggestions" component={SuggestionScreen} />
       <topTab.Screen name="Demandes" component={RequestScreen} />
     </topTab.Navigator>

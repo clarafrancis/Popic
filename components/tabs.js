@@ -1,7 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { StyleSheet,Text,View,Image,TouchableOpacity } from "react-native"; 
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native'; 
+import { SafeAreaProvider, SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 
 import LeaderboardScreen from "../screens/LeaderboardScreen";
 import HomePageScreen from '../screens/HomePageScreen';
@@ -16,13 +17,18 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import {Entypo} from "@expo/vector-icons";
 import {Ionicons} from "@expo/vector-icons";
 
-const Tab= createBottomTabNavigator();
+const Tab= createBottomTabNavigator(); 
+// const insets = useSafeAreaInsets(); 
 
 const Tabs = ()=> {
-    const navigation = useNavigation();
+    const navigation = useNavigation(); 
+    const insets = useSafeAreaInsets(); 
     return(
-        <Tab.Navigator
-        initialRouteName="PoPic"
+        // <SafeAreaProvider>
+
+        <Tab.Navigator 
+        initialRouteName="PoPic" 
+        
             screenOptions={{
                 headerRight:() => {
                     return <IconButtonProfile onPress={()=>navigation.navigate('Profile')}/>
@@ -33,13 +39,15 @@ const Tabs = ()=> {
                 headerTitleAlign: "center",
                 // headerShown: true,
                 tabBarShowLabel: false,
+                // paddingBottom: insets.bottom, 
+                // paddingTop : insets.top, 
                 tabBarStyle:{
                     // display: 'flex', 
                     flex: 1, 
                     // flexDirection: 'row',
                     bottom: '1%',
                     borderRadius: 100,
-                    maxHeight: '6%',
+                    maxHeight: '7.5%',
                     maxWidth:'97%',
                     alignItems: 'center',
                     justifyContent: 'center', 
@@ -47,7 +55,14 @@ const Tabs = ()=> {
                     borderTopWidth:2,
                     borderTopColor: '#4C7C4C',
                     borderColor: '#4C7C4C', 
-                    paddingTop: '2%',
+                    margin: 5, 
+                    // position: 'absolute', 
+                    // paddingTop: '2%', 
+                    // paddingTop: insets.top, 
+                    // paddingTop: 5
+
+                     
+                    
                 },
             }}
             >
@@ -64,7 +79,10 @@ const Tabs = ()=> {
                         style={{
                             width: 40,
                             height: 40, 
-                            marginBottom:'6%',
+                            // justifyContent: 'center', 
+                            // alignItems: 'center'
+                            // marginBottom:'5%',
+                            marginTop: '10%'
                         }}
                         />
                     </View>),
@@ -73,6 +91,7 @@ const Tabs = ()=> {
             <Tab.Screen name="Classement" component ={LeaderboardScreen} options={{tabBarIcon: ({size,focused,color}) => (<Entypo name="trophy" size={24} color={focused? "#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>
             <Tab.Screen name="Points" component ={GiftScreen} options={{tabBarIcon: ({size,focused,color}) => (<MaterialCommunityIcons name="shopping" size={24} color={focused?"#4C7C4C" :'gray' } style={styles.tabIcons}/>)}}/>    
        </Tab.Navigator>
+    //    </SafeAreaView>
     );
 }
 
@@ -84,6 +103,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center', 
+        marginTop: '10%', 
+        // paddingBottom: insets.bottom, 
 
     }
 })
