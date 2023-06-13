@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import {AuthStack} from "../App"
 import LoginScreen from "./LoginScreen"; 
 import NavigationContainer from "@react-navigation/native"; 
-import App from "../App"; 
+// import App from "../App"; 
 import firebase from 'firebase/app';
 // import 'firebase/auth'; 
 // import 
@@ -18,23 +18,26 @@ function ProfileScreen() {
     return ( 
         <>
         
-        <View style={{flex:4, flexDirection: 'column'}}>
+        <View style={{flex:4}}>
 
         <View style={styles.ppContainer}> 
             <Image style={styles.profilePic}
             source={require('../assets/pp.jpg')}/> 
         </View> 
-        <View > 
-            <Text> Nom </Text> 
-            <Text> Prénom </Text>
+        <View style={{color: 'lightgrey', marginLeft: 10}}> 
+            <Text style={{fontSize: 18, fontWeight: 'bold', padding: 10}}> Nom </Text> 
+            <Text style={{fontSize: 18, fontWeight: 'bold', padding: 10}}> Prénom </Text>
         </View> 
         {/* <View  style={{flex:1}}> 
             <Text>Prénom </Text>
         </View>  */} 
-        <Pressable style={styles.button} onPress={() => navigation.navigate('Login')}> 
-        <Text> Déconnexion </Text> 
+        <View style={{justifyContent: 'center', alignItems: 'center', padding: 10}}>
+        <Pressable style={styles.button} onPress={console.log('pressed')}> 
+        <Text style={{color: 'red'}}> Déconnexion </Text> 
+        
         
         </Pressable>
+        </View>
         </View>
         </>
     );
@@ -59,17 +62,21 @@ const styles = StyleSheet.create ( {
         alignItems: 'center', 
         // marginTop: 10, 
     }, 
-    button: {
-        height: 50, 
+    button: { 
+        // position: 'absolute', 
+        height: 40, 
         width: '60%', 
         borderWidth: 2, 
-        borderColor: 'green', 
+        borderColor: '#4C7C4C', 
         justifyContent: 'center', 
         alignItems: 'center', 
+        borderRadius: 30, 
+        backgroundColor: '#FFFFFF', 
         // alignContent: 'center', 
         // margin: 90, 
         // marginLeft: 50, 
         // marginRight: 50, 
+        // padding: 10 
 
     }
 })

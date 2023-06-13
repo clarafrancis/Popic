@@ -10,10 +10,20 @@ function FriendsTab() {
     <topTab.Navigator 
     tabBarOptions={ {
       activeTintColor: "green", 
-      inactiveTintColor: "blue" 
+      inactiveTintColor: "grey", 
+      // backgroundColor: 'red'
+      // borderRadius: 100,  
+      
     }
-
     }
+    // screenOptions={{
+    //   // borderRadius: 100 
+    // }} 
+    // options={ {
+    //   borderRadius: 100, 
+    // }
+  
+    // }
     >
       <topTab.Screen name="Suggestions" component={SuggestionScreen} />
       <topTab.Screen name="Demandes" component={RequestScreen} />

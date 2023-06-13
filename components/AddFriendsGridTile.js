@@ -19,7 +19,8 @@ function AddFriendsGridTile ({pp, username}) {
             </View>
             <View style={styles.innerRContainer}>
                 <Pressable style={styles.button} onPress={(HeaderButtonPressHandler)}>
-                    <Text style={{fontSize: 18, color:'white', fontWeight: 'bold'}}> Add </Text>
+                    <Text style={{fontSize: 18, color:'white', fontWeight: 'bold'}}> Add
+                     </Text>
                 </Pressable>
             {/* </View> */}
             {/* <View style={styles.innerContainer}> */}
