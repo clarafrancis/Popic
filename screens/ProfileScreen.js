@@ -4,7 +4,7 @@ import {AuthStack} from "../App"
 import LoginScreen from "./LoginScreen"; 
 import NavigationContainer from "@react-navigation/native"; 
 // import App from "../App"; 
-import firebase from 'firebase/app';
+// import firebase from 'firebase/app';
 // import 'firebase/auth'; 
 // import 
 

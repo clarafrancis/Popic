@@ -48,7 +48,7 @@ return (
 //   }, [navigation, PageAcceuil]);
 function renderCategoryItem(itemData){
   return(
-    <IdentifientsGrid profil={itemData.item.profil} title={itemData.item.title} imageUrl={itemData.item.imageUrl} quiz={itemData.item.quiz}/>
+    <IdentifientsGrid profil={itemData.item.profil} title={itemData.item.title} imageUrl={itemData.item.imageUrl} caption={itemData.item.caption} quiz={itemData.item.quiz}/>
 
   );
 }
@@ -237,7 +237,7 @@ textStyle4:{
         height:50,
     },
     endList: { 
-      height: 90, 
+      height: 20, 
     }
 
 })

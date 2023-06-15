@@ -15,6 +15,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { getHeaderTitle } from '@react-navigation/elements';
 //import { StatusBar } from 'expo-status-bar';
 
+import TestQuiz from './screens/TestQuiz';
 import GiftScreen from './screens/GiftScreen';
 import GiftDetailsScreen from './screens/GiftDetailsScreen';
 import ProfileScreen from './screens/ProfileScreen';
