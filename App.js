@@ -144,7 +144,7 @@ function AuthenticatedStack({navigation}) {
                 <Stack.Navigator> 
                   <Stack.Screen name ="Po'Pic" component={TabNavigation} options ={{headerShown: false,}}/>
                   <Stack.Screen name="Gift Details" component={GiftDetailsScreen} />
-                  <Stack.Screen name ="Paramètres" component={SettingsScreen} />
+                  <Stack.Screen name ="Paramètres" component={TestQuiz} options={{headerShown: true}} />
                   <Stack.Screen name ="Profile" component={ProfileScreen}/> 
                 </Stack.Navigator> 
   );

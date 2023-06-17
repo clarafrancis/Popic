@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { useLayoutEffect } from 'react';
-import {StyleSheet, FlatList, Alert, Pressable, Modal, Text, Image, View, Button} from 'react-native';
+import {StyleSheet, FlatList, Alert, Pressable, Modal, Text, Image, View, Button, ImageBackground} from 'react-native';
 import IdentifientsGrid from '../components/IdentifientsGrid';
 import { IDENTIFIANTS } from '../data/id'; 
 import ImagePicker from './ImagePicker';
@@ -72,8 +72,11 @@ function HomePageScreen({navigation}) {
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}>
+              {/* <ImageBackground source={{uri: 'https://i.pinimg.com/170x/29/74/80/29748024385efc09c25c5d6c9b4cfbbc.jpg'}} style={styles.image}> */}
+              {/* </ImageBackground> */}
+              <Text style={styles.textStyle5}>- - 20 juin 2023 - - </Text>
               <Text style={styles.textStyle2}> Challenge du jour:
-              {"\n"}Arroser vos plantes!{"\n"}</Text>
+              Arroser vos plantes!{"\n"}</Text>
               <ImagePicker/>
             </Pressable>
         </View>
@@ -129,7 +132,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf:'center',
-        width: '105%'
+        width: '105%',
     },
     button: {
         elevation: 2,
@@ -158,11 +161,12 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     buttonClose: {
-        backgroundColor: '#C9DCBD',
+        backgroundColor:'olivedrab',
+        //backgroundColor: '#C9DCBD',
         width: '90%',
-        marginTop:'17%',
-        height:160,
-      
+        marginTop:'60%',
+        height:180,
+        
     },
     textStyle: {
         color: 'white',
@@ -170,9 +174,10 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     textStyle2: {
-      color: '#4C7C4C',
+      color: 'white',
+      // color: '#4C7C4C',
       textAlign: 'center',
-      fontSize: 20
+      fontSize: 21
   },
   textStyle3: {
     color: '#4C7C4C',
@@ -182,6 +187,10 @@ const styles = StyleSheet.create({
 textStyle4:{
   fontSize: 50,
   color: '#4C7C4C',
+},
+textStyle5:{
+  fontSize: 30,
+  color: 'white',
 },
     modalText: {
         marginBottom: 13,

@@ -23,7 +23,7 @@ export default function RadioButton({ isChecked, text, onRadioButtonPress }) {
 
   const styles = StyleSheet.create({
     mainContainer: {
-      height: 35,
+      height: 28,
       marginTop: 2,
       marginBottom: 3,
       marginLeft: 10,
@@ -35,6 +35,7 @@ export default function RadioButton({ isChecked, text, onRadioButtonPress }) {
     //   borderColor: "gray",
       flexDirection: "row",
       alignItems: "center",
+      width:370
     },
     radioButtonIcon: {
       backgroundColor: "white",
