@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet, Pressable } from "react-native"; 
+import { View, Text, Image, StyleSheet, Pressable, Button} from "react-native"; 
 import { useNavigation } from "@react-navigation/native"; 
 // import {AuthStack} from "../App" 
 // import LoginScreen from "./LoginScreen"; 
@@ -13,6 +13,10 @@ const amis = 15;
 
 function ProfileScreen() { 
     const navigation = useNavigation( ); 
+    
+    function HeaderButtonPressHandler() {
+        console.log('Pressed')
+    }
         
       
     // const navigation = useNavigation(); 
@@ -20,12 +24,13 @@ function ProfileScreen() {
         <>
         
         <View style={{flex:4}}>
-        <View style={{backgroundColor: '#FFFFFF', height: 50, justifyContent: 'center', alignItems: 'flex-end'}}> 
-            <Text> username </Text>
+        <View style={{backgroundColor: '#FFFFFF', height: 50, justifyContent: 'center', alignItems: 'flex-end', borderBottomEndRadius: 20, borderBottomStartRadius: 20}}> 
+            <Text style={{fontSize: 20, fontWeight: 'bold', color: '#4C7C4C', marginRight: 100}}> username </Text>
         </View> 
         <View style={styles.ppContainer}> 
-            <Image style={styles.profilePic}
-            source={require('../assets/pp.jpg')}/> 
+            <Pressable  onPress={HeaderButtonPressHandler}> 
+            <Image style={styles.profilePic} source={require('../assets/logoCamera.png')}/>
+            </Pressable> 
             {/* <Text style={{margin: 10, fontSize: 18}}> {points} </Text>  */} 
             <View style={{flexDirection: 'column', margin: 30, zIndex: 1, marginTop: -50}}>
             <Text style={{fontSize : 30, color : '#4C7C4C'}}> {points} <Entypo name="leaf" size={30} color="#4C7C4C"/> </Text> 
@@ -34,7 +39,7 @@ function ProfileScreen() {
             </View>
 
         </View> 
-        <View style={{color: 'lightgrey', marginLeft: 10, backgroundColor: '#C9DCBD', flexDirection: 'column'}}> 
+        <View style={{color: 'lightgrey', margin: 10, backgroundColor: '#C9DCBD', flexDirection: 'column', borderRadius: 15}}> 
             <Text style={{fontSize: 18, fontWeight: 'bold', padding: 10}}> Tes Infos :  </Text> 
             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                 <Text style={{fontSize: 18, fontWeight: 'bold', padding: 10}}> Nom complet : </Text> 
@@ -47,9 +52,9 @@ function ProfileScreen() {
         {/* <View  style={{flex:1}}> 
             <Text>Prénom </Text>
         </View>  */} 
-        <View style={{justifyContent: 'center', alignItems: 'center', padding: 10}}>
+        <View style={{justifyContent: 'space-between', alignItems: 'center', padding: 10, flexDirection: 'column-reverse', flex: 1, marginBottom: 25}}>
         <Pressable style={styles.button} onPress={console.log('pressed')}> 
-        <Text style={{color: 'red'}}> Déconnexion </Text> 
+        <Text style={{color: 'red', fontWeight: 'bold'}}> Déconnexion </Text> 
         
         
         </Pressable>

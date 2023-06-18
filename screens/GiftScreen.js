@@ -33,6 +33,13 @@ const endList = () => {
     </View>
   ); 
 }; 
+const topList = () => { 
+  return ( 
+    <View style={{marginTop: 10}}>
+
+    </View>
+  ); 
+}; 
 
 function GiftScreen({ }) {
     function renderGiftItem(itemData) {
@@ -83,9 +90,10 @@ function GiftScreen({ }) {
         {/* </View> */}
       
         <FlatList 
-        // style={{flex:1}}
+        // style={{flex:1}} 
+        ListHeaderComponent={topList}
         ListFooterComponent={endList}
-        data={GIFTS}
+        data={GIFTS} 
         keyExtractor={(item) => item.id }
         renderItem={renderGiftItem
         } 
@@ -123,9 +131,11 @@ const styles = StyleSheet.create({
         // flex:1, 
         // paddingLeft: 10,
         // paddingRight: 10,
-        // paddingBottom: 10,
+        // paddingBottom: 10, 
+        borderBottomEndRadius: 20, 
+        borderBottomStartRadius: 20, 
         padding: 10,
-        borderBottomWidth: 1,
+        // borderBottomWidth: 1, 
         backgroundColor: '#fff',
         // shadowRadius: 3,
         // shadowColor: 'grey', 

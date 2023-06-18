@@ -144,7 +144,8 @@ const styles = StyleSheet.create({
       backgroundColor: '#C9DCBD',
       width: '75%',
       borderRadius:25,
-      alignSelf:'center',
+      alignSelf:'center', 
+      marginTop: 10
   
     },
     boite2:{
@@ -204,7 +205,7 @@ textStyle5:{
         // padding: 4,
         borderColor: '#91CAA2',
 
-        // alignItems: 'center',
+        // alignItems: 'center', 
     },
     BoiteTitre: {
         borderRadius:20,
