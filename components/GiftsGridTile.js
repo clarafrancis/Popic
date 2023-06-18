@@ -1,7 +1,10 @@
-import { Pressable, View, Text, StyleSheet, Platform, Button, Alert, Image } from "react-native";
-// import { GIFTS } from "../data/dataGIFT";
+import { Pressable, View, Text, StyleSheet, Platform, Button, Alert, Image, Modal } from "react-native";
+// import { GIFTS } from "../data/dataGIFT"; 
+import { AntDesign} from "@expo/vector-icons" 
+import { useState } from "react";
 
-function GiftGridTile ({companysname, points, detail, image, onPress}) {
+function GiftGridTile ({companysname, points, detail, image, onPress}) { 
+    const[modalVisible, setModalVisible] = useState(false); 
     return (
     <View style={styles.gridItem}>
         {/* <Pressable android_ripple= {{color : '#ccc'}} 
@@ -15,11 +18,39 @@ function GiftGridTile ({companysname, points, detail, image, onPress}) {
                     <Text style={styles.taskTitle}> {companysname} </Text>
                     <Text style={styles.taskTitle}> {points} </Text>
                 </View>
-                <View style={styles.innerMidContainer}>
-                    <Pressable  style={styles.button} onPress={() => Alert.alert('QR Code à présenter')}>
-                        <Text style={{fontSize: 20, color: 'white', fontWeight: 'bold'}}>Get it now</Text>
+
+                <View style={styles.innerMidContainer}> 
+                {/* <View >  */}
+                <Modal
+                    animationType="fade"
+                    transparent={true}
+                    visible={modalVisible}
+                    // backgroundColor= 'grey' 
+                    // style={{position: 'relative'}} 
+                    onRequestClose={() => {
+                    Alert.alert('Modal has been closed.');
+                    setModalVisible(!modalVisible);
+                    }}>
+                    {/* <Text style={{fontSize: 20, color: 'white', fontWeight: 'bold'}}>Get it now</Text>  */}
+
+                    <Pressable  style={styles.buttonPressed} onPress={() => 
+                        setModalVisible(!modalVisible)}>
+                        <Text> QR Code à présenter</Text>
+                        <AntDesign name='qrcode' size= {100} /> 
+
                     </Pressable>
-                    <Image source ={{uri:image}} style={styles.image}/>
+                </Modal> 
+
+
+                    <Pressable
+                        style={styles.button} onPress={() => 
+                        setModalVisible(true)} >
+                        <Text style={{fontSize: 20, color: 'white', fontWeight: 'bold'}}>Get it now</Text> 
+                    </Pressable>
+                {/* </View> */}
+
+                    <Image source ={{uri:image}} style={styles.image}/> 
+                    
                 </View>
 
                 <View style={styles.innerBottomContainer}>
@@ -68,10 +99,27 @@ const styles = StyleSheet.create({
         // alignContent: 'center',
         // textAlign: 'center',
         // alignSelf: 'center'
-    },
+    }, 
 
     buttonPressed: {
-        opacity: 0.50,
+        // opacity: 0.50, 
+        height: 200, 
+        width: 200, 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        alignSelf: 'center', 
+        // alignContent: 'center', 
+        verticalAlign: 'middle', 
+        borderWidth: 2, 
+        borderRadius: 20, 
+        backgroundColor: '#C9C9C9', 
+        // margin: 100, 
+        // margin: 'middle', 
+        borderColor: 'green', 
+        marginTop: 250, 
+        // position: 'absolute' 
+
+
     },
 
     innerContainer:{
@@ -143,6 +191,14 @@ const styles = StyleSheet.create({
         borderRadius: 30, 
         // marginLeft: 10,
         // marginRight: 10, 
+    }, 
+    modalCentre: { 
+        flex: 1, 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        // marginTop: 100, 
+        // alignSelf: 'center', 
+        // verticalAlign: 'middle', 
     }
 }
 

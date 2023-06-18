@@ -8,9 +8,25 @@ const topTab = createMaterialTopTabNavigator();
 function FriendsTab() {
   return (
     <topTab.Navigator 
-    tabBarOptions={ {
-      activeTintColor: "green", 
+    screenOptions={ {
+      // activeTintColor: "red", 
       inactiveTintColor: "grey", 
+      // backgroundColor: 'red', 
+      // tabBarShowLabel: false, 
+      // tabBarShowIcon: false, 
+
+      tabBarIndicatorStyle: {backgroundColor: '#C9DCBD', height: '100%', borderRadius: 30, borderColor: 'green', borderWidth: 2}, 
+      
+      // tabBarShowIndicator: false, 
+      // tabBarGap: 100, 
+      tabBarStyle: { 
+        // backgroundActiveColor: 'green' 
+        borderRadius: 30, 
+        borderWidth: 2, 
+        borderColor: 'transparent', 
+        margin: 10, 
+        activeTintColor: 'red', 
+      }
       // backgroundColor: 'red'
       // borderRadius: 100,  
       

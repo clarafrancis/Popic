@@ -56,6 +56,7 @@ const Tabs = ()=> {
                     borderTopColor: '#4C7C4C',
                     borderColor: '#4C7C4C', 
                     margin: 5, 
+                    // backgroundColor: 'transparent' 
                     // position: 'absolute', 
                     // paddingTop: '2%', 
                     // paddingTop: insets.top, 

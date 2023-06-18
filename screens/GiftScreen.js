@@ -7,7 +7,8 @@ import { ProgressBar, MD3Colors } from "react-native-paper";
 // import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // import {FontAwesome5} from "@expo/vector-icons";
-import {Entypo} from "@expo/vector-icons";
+import {Entypo} from "@expo/vector-icons"; 
+// import {AntDesign} from "@expo/vector-icons" 
 
 // import IconButton from '../components/IconButton';
 
@@ -253,7 +254,7 @@ const styles = StyleSheet.create({
       }, 
 
       endList: { 
-        height: 90, 
+        height: 20, 
       }
 });
 

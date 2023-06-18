@@ -74,7 +74,7 @@ function HomePageScreen({navigation}) {
               onPress={() => setModalVisible(!modalVisible)}>
               <Text style={styles.textStyle2}> Challenge du jour:
               {"\n"}Arroser vos plantes!{"\n"}</Text>
-              <ImagePicker/>
+              <ImagePicker/> 
             </Pressable>
         </View>
       </Modal>

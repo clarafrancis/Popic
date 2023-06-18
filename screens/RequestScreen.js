@@ -38,7 +38,7 @@ const topList = () => {
 
 function SuggestionScreen() {
     function renderAddFriendsItem(itemData){
-        return <AddFriendsGridTile pp={itemData.item.pp} username={itemData.item.username}/>};
+        return <RequestGridTile pp={itemData.item.pp} username={itemData.item.username}/>};
         
     function HeaderButtonPressHandler() {
         console.log('Pressed')

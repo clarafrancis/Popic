@@ -1,10 +1,10 @@
 import { View, Text, Image, StyleSheet, Pressable } from "react-native"; 
 import { useNavigation } from "@react-navigation/native"; 
-import {AuthStack} from "../App"
-import LoginScreen from "./LoginScreen"; 
+// import {AuthStack} from "../App" 
+// import LoginScreen from "./LoginScreen"; 
 import NavigationContainer from "@react-navigation/native"; 
 // import App from "../App"; 
-import firebase from 'firebase/app';
+// import firebase from 'firebase/app'; 
 // import 'firebase/auth'; 
 // import 
 
@@ -23,6 +23,7 @@ function ProfileScreen() {
         <View style={styles.ppContainer}> 
             <Image style={styles.profilePic}
             source={require('../assets/pp.jpg')}/> 
+            <Text style={{margin: 10, fontSize: 18}}> username </Text>
         </View> 
         <View style={{color: 'lightgrey', marginLeft: 10}}> 
             <Text style={{fontSize: 18, fontWeight: 'bold', padding: 10}}> Nom </Text> 
@@ -60,6 +61,7 @@ const styles = StyleSheet.create ( {
         justifyContent: 'center', 
         alignContent: 'center', 
         alignItems: 'center', 
+        marginTop: 10, 
         // marginTop: 10, 
     }, 
     button: { 
