@@ -3,12 +3,13 @@ import { useNavigation } from "@react-navigation/native";
 // import {AuthStack} from "../App" 
 // import LoginScreen from "./LoginScreen"; 
 import NavigationContainer from "@react-navigation/native"; 
-// import App from "../App"; 
 // import firebase from 'firebase/app';
 // import 'firebase/auth'; 
 // import 
+import {Entypo} from "@expo/vector-icons"; 
 
-
+const points = 35; 
+const amis = 15; 
 
 function ProfileScreen() { 
     const navigation = useNavigation( ); 
@@ -19,15 +20,29 @@ function ProfileScreen() {
         <>
         
         <View style={{flex:4}}>
-
+        <View style={{backgroundColor: '#FFFFFF', height: 50, justifyContent: 'center', alignItems: 'flex-end'}}> 
+            <Text> username </Text>
+        </View> 
         <View style={styles.ppContainer}> 
             <Image style={styles.profilePic}
             source={require('../assets/pp.jpg')}/> 
-            <Text style={{margin: 10, fontSize: 18}}> username </Text>
+            {/* <Text style={{margin: 10, fontSize: 18}}> {points} </Text>  */} 
+            <View style={{flexDirection: 'column', margin: 30, zIndex: 1, marginTop: -50}}>
+            <Text style={{fontSize : 30, color : '#4C7C4C'}}> {points} <Entypo name="leaf" size={30} color="#4C7C4C"/> </Text> 
+            <Text style={{fontSize : 30, color : '#4C7C4C'}}> {amis} amis </Text> 
+
+            </View>
+
         </View> 
-        <View style={{color: 'lightgrey', marginLeft: 10}}> 
-            <Text style={{fontSize: 18, fontWeight: 'bold', padding: 10}}> Nom </Text> 
-            <Text style={{fontSize: 18, fontWeight: 'bold', padding: 10}}> Prénom </Text>
+        <View style={{color: 'lightgrey', marginLeft: 10, backgroundColor: '#C9DCBD', flexDirection: 'column'}}> 
+            <Text style={{fontSize: 18, fontWeight: 'bold', padding: 10}}> Tes Infos :  </Text> 
+            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                <Text style={{fontSize: 18, fontWeight: 'bold', padding: 10}}> Nom complet : </Text> 
+                <Text style={{fontSize: 18, fontWeight: 'bold', padding: 10}}> Age  : </Text> 
+            </View>
+            <Text style={{fontSize: 18, fontWeight: 'bold', padding: 10}}> Email : </Text> 
+            
+
         </View> 
         {/* <View  style={{flex:1}}> 
             <Text>Prénom </Text>
@@ -49,19 +64,23 @@ export default ProfileScreen;
 const styles = StyleSheet.create ( { 
     profilePic: { 
         borderRadius: 100, 
-        width: 100, 
-        height: 100, 
+        width: 200, 
+        height: 200, 
         borderColor: 'green', 
-        borderWidth: 2, 
+        borderWidth: 5, 
+        marginTop: -50, 
+        zIndex: 1 
     }, 
 
     ppContainer: { 
         // flex: 1, 
         height: 150, 
-        justifyContent: 'center', 
+        // justifyContent: 'center', 
         alignContent: 'center', 
         alignItems: 'center', 
-        marginTop: 10, 
+        margin: 15, 
+        flexDirection: 'row', 
+        // zIndex: 1, 
         // marginTop: 10, 
     }, 
     button: { 

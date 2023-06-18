@@ -47,7 +47,7 @@ const Tabs = ()=> {
                     // flexDirection: 'row',
                     bottom: '1%',
                     borderRadius: 100,
-                    maxHeight: '6%',
+                    height: '6%',
                     maxWidth:'97%',
                     alignItems: 'center',
                     justifyContent: 'center', 
@@ -57,7 +57,7 @@ const Tabs = ()=> {
                     borderColor: '#4C7C4C', 
                     margin: 5, 
                     // backgroundColor: 'transparent' 
-                    // position: 'absolute', 
+                    position: 'absolute', 
                     // paddingTop: '2%', 
                     // paddingTop: insets.top, 
                     // paddingTop: 5

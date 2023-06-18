@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
       }, 
 
       endList: { 
-        height: 20, 
+        height: 70, 
       }
 });
 

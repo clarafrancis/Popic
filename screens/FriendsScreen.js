@@ -11,6 +11,7 @@ function FriendsTab() {
     screenOptions={ {
       // activeTintColor: "red", 
       inactiveTintColor: "grey", 
+      // header: true, 
       // backgroundColor: 'red', 
       // tabBarShowLabel: false, 
       // tabBarShowIcon: false, 

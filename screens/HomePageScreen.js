@@ -72,8 +72,7 @@ function HomePageScreen({navigation}) {
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}>
-              {/* <ImageBackground source={{uri: 'https://i.pinimg.com/170x/29/74/80/29748024385efc09c25c5d6c9b4cfbbc.jpg'}} style={styles.image}> */}
-              {/* </ImageBackground> */}
+              
               <Text style={styles.textStyle5}>- - 20 juin 2023 - - </Text>
               <Text style={styles.textStyle2}> Challenge du jour:
               Arroser vos plantes!{"\n"}</Text>

@@ -12,7 +12,8 @@
 
 import { View, Text, StyleSheet, Image, FlatList, Pressable, Clipboard} from "react-native"; 
 // import Clipboard from '@react-native-clipboard/clipboard';
-import AddFriendsGridTile from "../components/AddFriendsGridTile.js";
+import AddFriendsGridTile from "../components/AddFriendsGridTile.js"; 
+import RequestGridTile from "../components/ReqGT.js";
 // import { FlatList } from "react-native-gesture-handler";
 import { ADDFRIENDS } from "../data/dataFRIENDS";
 import { StatusBar } from "expo-status-bar"; 
@@ -36,7 +37,7 @@ const topList = () => {
     ); 
 } 
 
-function SuggestionScreen() {
+function RequestScreen() {
     function renderAddFriendsItem(itemData){
         return <RequestGridTile pp={itemData.item.pp} username={itemData.item.username}/>};
         
@@ -170,4 +171,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default SuggestionScreen;
+export default RequestScreen;
