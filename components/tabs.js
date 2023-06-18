@@ -47,7 +47,7 @@ const Tabs = ()=> {
                     // flexDirection: 'row',
                     bottom: '1%',
                     borderRadius: 100,
-                    maxHeight: '7.5%',
+                    maxHeight: '6%',
                     maxWidth:'97%',
                     alignItems: 'center',
                     justifyContent: 'center', 
@@ -83,7 +83,7 @@ const Tabs = ()=> {
                             // justifyContent: 'center', 
                             // alignItems: 'center'
                             // marginBottom:'5%',
-                            marginTop: '10%'
+                            marginTop: '3%'
                         }}
                         />
                     </View>),
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center', 
-        marginTop: '10%', 
+        marginTop: '12%', 
         // paddingBottom: insets.bottom, 
 
     }

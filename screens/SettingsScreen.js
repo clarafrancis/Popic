@@ -9,8 +9,9 @@ import { FontAwesome } from '@expo/vector-icons';
 
 
 
-export const ModeSombre = (<Ionicons name="moon" size={24} color="purple" />);
-export const NomUtilisateur = (<AntDesign name="user" size={24} color="blue" />);
+export const ModeSombre = (<Ionicons name="moon" size={24} color="pink" />);
+export const NomUtilisateur = (<AntDesign name="user" size={24} color="purple" />);
+export const Deconnection = (<FontAwesome name="power-off" size={24} color="blue" />);
 export const Confidentialité = (<MaterialIcons name="security" size={24} color="green" />);
 export const Avatar = (<AntDesign name="smile-circle" size={24} color="yellow" />);
 export const Son = (<FontAwesome name="bell" size={24} color="orange" />);
@@ -26,6 +27,7 @@ function Parametre(){
               data={[
                 {key: 'Mode Sombre', page:'Book', icon: ModeSombre},
                 {key: "Nom d'utilisateur", page:'Availability', icon:NomUtilisateur},
+                {key: "Deconnection", page:'Deconnection', icon:Deconnection},
                 {key: 'Confidentialité et sécurité', page:'Faq', icon: Confidentialité},
                 {key: 'Avatar', page: 'Links', icon: Avatar},
                 {key: 'Sons et notifications', page:'Faq', icon: Son},
