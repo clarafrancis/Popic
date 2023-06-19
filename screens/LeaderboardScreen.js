@@ -6,7 +6,11 @@ import {Ionicons} from "@expo/vector-icons";
 
 const ranking = '#2'
 const numFriends = '15' 
-const feuilles = '108'
+const feuilles = '108' 
+const points2 = '108'
+const points1 = '135' 
+const points3 = '95' 
+
 function LeaderboardScreen() {
     return ( 
         <>
@@ -32,36 +36,60 @@ function LeaderboardScreen() {
 
          <View style={styles.podium}>
             <View style={styles.second}>
-                <View style={{height: 65}}> 
-                    {/* <Text>Hello</Text> */}
+                <View style={{height: 65, justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}> 
+                    <View style={{borderRadius: 100, borderWidth: 2, height: 50, width: 50}}></View>
+                    <View style={{marginBottom: 5}}>
+                        <Text> username2 </Text> 
+                    </View>
+                    
+
                 </View> 
-                <View style={{height: 65, backgroundColor: '#C9DCBD', borderBottomLeftRadius: 10, borderTopWidth: 5, borderTopColor: '#C9C9C9'}}>
+                <View style={{height: 65, backgroundColor: '#C9DCBD', borderBottomLeftRadius: 10, borderTopWidth: 5, borderTopColor: '#C9C9C9', justifyContent: 'center', alignItems: 'center'}}> 
+                <View style={styles.point2}> 
+                    <Text style={styles.numeros}> {points2} </Text> 
+                </View>
                     
                 </View>
             </View> 
             <View style={styles.first}>
-                <View style={{height: 40}}> 
-                {/* <Text>Hello</Text> */}
+                <View style={{height: 50, justifyContent: 'center', alignItems: 'center', zIndex: 1, flexDirection: 'column'}}> 
+                    <View style={{borderRadius: 100, borderWidth: 2, height: 50, width: 50}}></View>
+                    <View style={{marginBottom: 20}}>
+                        <Text> username1 </Text> 
+                    </View>
 
                 </View>
-                <View style={{height: 90, backgroundColor: '#C9DCBD', borderTopWidth: 5, borderTopColor: '#F0C63E'}}>
+                <View style={{height: 80, backgroundColor: '#C9DCBD', borderTopWidth: 5, borderTopColor: '#F0C63E', justifyContent: 'center', alignItems: 'center'}}> 
+
+                <View style={styles.point1}> 
+                    <Text style={styles.numeros}> {points1}</Text> 
+                </View>
 
                 </View>
             
             </View> 
             <View style={styles.third}>
-                <View style={{height: 90}}>
+                <View style={{height: 80, justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}> 
+                    <View style={{borderRadius: 100, borderWidth: 2, height: 50, width: 50}}> 
+                    </View>
+                    <View style={{marginBottom: -10}}>
+                        <Text> username3 </Text>
+                    </View> 
 
-                </View> 
-                <View style={{height: 40, backgroundColor: '#C9DCBD', borderBottomRightRadius: 10, borderTopWidth: 5, borderTopColor: '#CA8A2B'}}>
+                </View>
+
+                {/* </View>  */}
+                <View style={{height: 50, backgroundColor: '#C9DCBD', borderBottomRightRadius: 10, borderTopWidth: 5, borderTopColor: '#CA8A2B', justifyContent: 'center', alignItems: 'center'}}> 
+                <View style={styles.point3}> 
+                    <Text style={styles.numeros}> {points3} </Text>
+                    
+                </View>
 
                 </View>
 
             </View>
-         </View> 
-         {/* <View>
-            <Text> hello </Text>
-         </View> */}
+         </View>  
+        
         </>
     );
 }
@@ -87,29 +115,71 @@ const styles = StyleSheet.create({
     }, 
 
     podium: { 
-        flex: 3, 
+        // flex: 3, 
         flexDirection: 'row', 
-        height: 100, 
+        // height: 100, 
         paddingLeft: 20, 
         paddingRight: 20, 
+        marginTop: 50, 
         // marginBottom: 500, 
         // justifyContent: 'flex-end'
     }, 
 
     second:{
-        flex: 2, 
+        flex: 1, 
         flexDirection: 'column', 
         // justifyContent: 'flex-end'
     }, 
     first:{
-        flex: 2, 
+        flex: 1, 
+        flexDirection: 'column', 
+        // justifyContent: 'flex-end' 
+    }, 
+    third:{
+        flex: 1, 
         flexDirection: 'column', 
         // justifyContent: 'flex-end'
     }, 
-    third:{
-        flex: 2, 
-        flexDirection: 'column', 
-        // justifyContent: 'flex-end'
+
+    point2: { 
+        height: 30, 
+        width: 80, 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        // flex: 1, 
+        borderRadius: 50, 
+        backgroundColor: '#C9C9C9', 
+        borderWidth: 2, 
+        borderColor: '#C9C9C9',     
+    }, 
+    numeros: {
+        fontWeight: 'bold', 
+        justifyContent: 'center', 
+        color: '#FFFFFF', 
+        alignItems: 'center', 
+        fontSize: 20,         
+    }, 
+    point1: { 
+        height: 30, 
+        width: 80, 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        // flex: 1, 
+        borderRadius: 50, 
+        backgroundColor: '#F0C63E', 
+        borderWidth: 2, 
+        borderColor: '#F0C63E'
+    }, 
+
+    point3: { 
+        height: 30, 
+        width: 80, 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        borderRadius: 50,  
+        backgroundColor: '#CA8A2B', 
+        borderWidth: 2, 
+        borderColor: '#CA8A2B'
     }
 
     // podium: {
